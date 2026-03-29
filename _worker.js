@@ -8,7 +8,7 @@ export default {
         const body = await request.json();
 
         // 11 түлхүүрийг шалгах
-        const keys =[];
+        const keys = [];
         for (let i = 1; i <= 11; i++) {
           if (env[`GEMINI_KEY_${i}`]) {
             keys.push(env[`GEMINI_KEY_${i}`]);
@@ -45,6 +45,7 @@ export default {
     }
 
     // Бусад бүх хандалтыг (index.html, css, js) хэвийнээр нь уншуулна
+    // Early Hints нь _headers файлаар Cloudflare дамжуулан ажиллана
     return env.ASSETS.fetch(request);
   }
 };

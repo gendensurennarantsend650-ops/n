@@ -61,3 +61,38 @@ main { padding: 0 40px; }
   .genre-bar { gap: 8px; margin-bottom: 15px; }
   .gpill { padding: 6px 12px; font-size: 12px; }
 }
+
+/* ============================================================
+   2026 SPEED STACK: Content-Visibility
+   Дэлгэцэнд харагдаагүй секцүүдийг рендер хийхгүй → CPU хэмнэлт
+   ============================================================ */
+
+/* Scroll-доор байгаа том секцүүд */
+.sec {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 400px;
+}
+
+/* Hero доорх эхний секц нь шууд харагддаг тул override */
+.page-movies > main > .sec:first-child {
+  content-visibility: visible;
+}
+
+/* Full grid хуудас (бүгд харах) */
+#moviesFullSection,
+#seriesFullSection {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
+/* Grid картууд: mgrid дотор байгаа */
+.mgrid .mcard {
+  content-visibility: auto;
+  contain-intrinsic-size: 160px 280px;
+}
+
+/* Weather grid */
+.w-grid > * {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 200px;
+}
