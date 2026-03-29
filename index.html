@@ -10,13 +10,57 @@
 <!-- PWA Manifest (2026 оны шинэчлэл: App болгож суулгах) -->
 <link rel="manifest" href="manifest.json">
 
+<!-- ① Preconnect: Cloudflare HTTP/103 Early Hints дамжуулдаг -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js"></script>
-<script src="https://www.youtube.com/iframe_api"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://image.tmdb.org">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://www.youtube.com">
+<link rel="dns-prefetch" href="https://generativelanguage.googleapis.com">
+
+<!-- ② CSS: render-blocking нь байхгүй болгох (onload trick) -->
+<link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="nave.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="hero.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="cards.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nave.css">
+  <link rel="stylesheet" href="hero.css">
+  <link rel="stylesheet" href="cards.css">
+</noscript>
+
+<!-- ③ Фонт: display=swap → layout shift байхгүй -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+
+<!-- ④ JS modulepreload: parse хийхэд хүлээхгүй -->
+<link rel="modulepreload" href="app.js">
+<link rel="modulepreload" href="zar.js">
+
+<!-- ⑤ HLS болон P2P: defer болгох (Hero ачаалагдсаны дараа) -->
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-core@latest/build/p2p-media-loader-core.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/p2p-media-loader-hlsjs@latest/build/p2p-media-loader-hlsjs.min.js" defer></script>
+<script src="https://www.youtube.com/iframe_api" defer></script>
+
+<!-- ⑥ Speculation Rules API: .mcard-д hover хийхэд урьдчилж рендер -->
+<script type="speculationrules">
+{
+  "prerender": [
+    {
+      "where": { "selector_matches": ".mcard" },
+      "eagerness": "moderate"
+    }
+  ],
+  "prefetch": [
+    {
+      "where": { "selector_matches": "nav button" },
+      "eagerness": "conservative"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 

@@ -25,13 +25,19 @@ export const MOVIE_GENRES =[
   { label: '📖 Biography',    keys:['biography'] }
 ];
 
-window.makeMovieCard = function (m) {
+window.makeMovieCard = function (m, isFirst = false) {
   const d = document.createElement('div');
   d.className = 'mcard';
+  // Эхний харагдах картуудад fetchpriority=high, бусад нь lazy
+  const imgAttrs = isFirst
+    ? 'fetchpriority="high" loading="eager"'
+    : 'loading="lazy" decoding="async"';
   d.innerHTML = `
     <div class="mcard-poster-wrap">
       <img class="mcard-poster"
            src="${m.poster || ''}"
+           alt="${m.title}"
+           ${imgAttrs}
            onerror="fixPoster(this,'${(m.title_en || m.title).replace(/'/g, "\\'")}')">
       <div class="mcard-ov">
         <div class="mcard-play">
@@ -99,5 +105,5 @@ function renderMoviesGrid(keys) {
   const cnt = document.getElementById('moviesCount');
   if (cnt) cnt.textContent = `Нийт ${items.length} кино`;
 
-  items.slice(0, 80).forEach((m) => grid.appendChild(window.makeMovieCard(m)));
+  items.slice(0, 80).forEach((m, i) => grid.appendChild(window.makeMovieCard(m, i < 6)));
 }
