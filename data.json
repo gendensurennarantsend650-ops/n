@@ -1,14 +1,14 @@
 {
   "data": [
     {
-      "title": "John Wick: Chapter 4",
-      "mongolian_title": "Жон Уик 4",
+      "title": "House With A Good View",
+      "mongolian_title": "Сайхан гэр",
       "type": "movie",
-      "year": 2023,
-      "genre": ["action"],
-      "ratings": { "imdb": "7.7" },
-      "poster_link": "https://image.tmdb.org/t/p/w500/vZloYm7pS7lsUsDbtSfezg6Af6b.jpg",
-      "embed_links": ["https://www.youtube.com/embed/qEVUrkHu32E"]
+      "year": 2012,
+      "genre": ["romance", "drama"],
+      "ratings": { "imdb": "5.1" },
+      "poster_link": "https://image.pmgstatic.com/cache/resized/w936/files/images/film/posters/162/595/162595436_131580.jpg",
+      "embed_links":["aHR0cHM6Ly9teXZpZHBsYXkuY29tL2UvMzJ5enQxdnBiY3l1"]
     },
     {
       "title": "Dune: Part Two",
