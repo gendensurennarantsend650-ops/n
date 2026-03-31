@@ -1,5 +1,5 @@
 // ============================================================
-// app.js — Гол entry point
+// app.js — Гол entry point (ХАМГААЛАЛТТАЙ ХУВИЛБАР)
 // ============================================================
 
 import './firebase-config.js';
@@ -26,6 +26,17 @@ window.addEventListener('scroll', () => {
 window.scrollRow = function(id, dx) {
   document.getElementById(id)?.scrollBy({ left: dx, behavior: 'smooth' });
 };
+
+// ============================================================
+// 🔐 Base64 шифр тайлах туслах функц
+// ============================================================
+function decodeLink(link) {
+  if (!link) return '';
+  // Хэрэв шифрлээгүй энгийн (http) линк байвал шууд уншина
+  if (link.startsWith('http')) return link; 
+  // Шифрлэсэн байвал тайлж уншина
+  try { return atob(link); } catch(e) { return link; } 
+}
 
 async function loadData() {
   try {
@@ -59,10 +70,17 @@ async function loadData() {
             : item.genre || ''
         ).toLowerCase(),
       };
+      
       if (isSeries) {
-        window.SERIES.push({ ...base, episodes: item.episodes ||[] });
+        // Цувралын ангиудын линкийг тайлах
+        const decodedEpisodes = (item.episodes ||[]).map(ep => ({
+          ...ep,
+          embed_links: ep.embed_links ? [decodeLink(ep.embed_links[0])] :[]
+        }));
+        window.SERIES.push({ ...base, episodes: decodedEpisodes });
       } else {
-        window.MOVIES.push({ ...base, embed: item.embed_links?.[0] || '' });
+        // Киноны линкийг тайлах
+        window.MOVIES.push({ ...base, embed: decodeLink(item.embed_links?.[0]) });
       }
     });
 
@@ -144,3 +162,18 @@ window.gotoPage = function(p) {
 };
 
 loadData();
+
+// ============================================================
+// 🛡️ ХАМГААЛАЛТЫН КОД (Anti-Inspect, No Right Click)
+// ============================================================
+document.addEventListener('contextmenu', event => event.preventDefault()); // Баруун товч хаах
+document.onkeydown = function(e) {
+  if (e.keyCode === 123) return false; // F12 хаах
+  if (e.ctrlKey && e.shiftKey && e.keyCode === 73) return false; // Ctrl+Shift+I хаах
+  if (e.ctrlKey && e.shiftKey && e.keyCode === 67) return false; // Ctrl+Shift+C хаах
+  if (e.ctrlKey && e.shiftKey && e.keyCode === 74) return false; // Ctrl+Shift+J хаах
+  if (e.ctrlKey && e.keyCode === 85) return false; // Ctrl+U (View Source) хаах
+};
+// Хүн хүчээр консол нээвэл гарах анхааруулга
+console.log("%cЗОГС!", "color: red; font-size: 50px; font-weight: bold;");
+console.log("%cЭнэ сайтын кодыг хуулахыг хориглоно.", "font-size: 18px;");
