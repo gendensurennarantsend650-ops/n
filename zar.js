@@ -1,10 +1,7 @@
 // zar.js
-import './zar-config.js'; // window.MY_ADS-г ачаална
-import { ZAR_CSS } from './zar-styles.js'; // CSS загварыг импортолно
+import './zar-config.js'; 
+import { ZAR_CSS } from './zar-styles.js'; 
 
-const _ZAR_MAX = 100;
-
-// CSS загварыг хуудасны <head> хэсэгт нэмэх функц
 function _zarInjectCSS() {
   if (document.getElementById('_zar_css')) return;
   const s = document.createElement('style');
@@ -13,91 +10,51 @@ function _zarInjectCSS() {
   document.head.appendChild(s);
 }
 
-// Линкийн өргөтгөлөөр нь төрлийг (Видео, Зураг, Линк) тогтоох функц
-function _zarDetectType(src) {
-  if (!src) return 'empty';
-  const clean = src.split('?')[0].toLowerCase();
-  if (/\.(mp4|webm|ogg|mov)$/.test(clean)) return 'video';
-  if (/\.(jpg|jpeg|png|gif|webp|avif|svg)$/.test(clean)) return 'image';
-  return 'link';
-}
-
-// Зарын элементийг (HTML) угсарч үүсгэх функц
 function _zarBuildEl(ad) {
   const wrap = document.createElement('div');
   wrap.className = 'ad-wrap';
-  wrap.dataset.zarLabel = ad.label || '';
+  
+  // Зураг байгаа эсэхийг шалгах (ad.image эсвэл ad.src)
+  const adImage = ad.image || ad.src;
+  const hasImage = adImage && adImage.includes('http');
+  const targetLink = ad.link || ad.src;
 
-  const type = _zarDetectType(ad.src);
-
-  if (type === 'video') {
+  if (hasImage) {
+    // Зурагтай Premium Banner
     wrap.innerHTML = `
-      <div class="ad-video-box">
-        <div class="ad-corner-badge">${ad.label || 'РЕКЛАМ'}</div>
-        <video src="${ad.src}" autoplay loop muted playsinline></video>
-      </div>`;
-  } else if (type === 'image') {
-    const href = ad.link || ad.src;
-    wrap.innerHTML = `
-      <a href="${href}" target="_blank" rel="noopener" class="ad-img-box">
-        <div class="ad-corner-badge">${ad.label || 'РЕКЛАМ'}</div>
-        <img src="${ad.src}" alt="${ad.label || 'Реклам'}">
+      <a href="${targetLink}" target="_blank" rel="noopener" class="ad-img-box" style="display:block; text-decoration:none; position:relative;">
+        <div class="ad-corner-badge" style="position:absolute; top:8px; left:10px; background:linear-gradient(135deg,#c9a800,#f0d060); color:#000; font-size:10px; font-weight:800; padding:3px 9px; border-radius:4px; z-index:5;">${ad.label || 'РЕКЛАМ'}</div>
+        <img src="${adImage}" alt="Ads" style="width:100%; border-radius:10px; display:block; border:1px solid rgba(212,175,55,0.3);">
       </a>`;
-  } else if (type === 'link') {
-    const domain = (() => { 
-      try { return new URL(ad.src).hostname.replace('www.',''); } 
-      catch(_){ return ad.src; } 
-    })();
-    wrap.innerHTML = `
-      <div class="ad-link-box">
-        <div class="ad-link-left">
-          <div class="ad-badge">${ad.label || 'BANNER'}</div>
-          <div class="ad-link-texts">
-            <div class="ad-link-title">${domain}</div>
-            <div class="ad-link-sub">Рекламаа явуулж байна</div>
-          </div>
-        </div>
-        <a href="${ad.src}" target="_blank" rel="noopener" class="ad-goto-btn">↗ ҮЗЭХ</a>
-      </div>`;
   } else {
-    // src хоосон үед гарах "Реклам байршуулах" хэсэг
+    // Зураггүй үед гарах блок
     wrap.innerHTML = `
-      <div class="ad-empty-box">
-        <div class="ad-link-left">
-          <div class="ad-badge">${ad.label || 'BANNER'}</div>
-          <div class="ad-link-texts">
-            <div class="ad-link-title" style="color:#D4AF37">Энд таны рекламаа байрлуул</div>
-            <div class="ad-link-sub">Рекламаа явуулах бол холбогдоно уу</div>
-          </div>
+      <div class="ad-empty-box" style="border:1.5px dashed rgba(212,175,55,0.3); padding:14px 20px; border-radius:10px; display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <div style="color:#D4AF37; font-weight:600;">${ad.label || 'BANNER'} - Реклам байрлуул</div>
+          <div style="color:rgba(212,175,55,0.5); font-size:12px;">Холбогдох: 99376238</div>
         </div>
-        <a href="tel:99376238" class="ad-phone-btn">📞 99376238</a>
+        <a href="tel:99376238" style="background:#f0d060; color:#000; padding:8px 15px; border-radius:6px; text-decoration:none; font-weight:800;">📞 99376238</a>
       </div>`;
   }
   return wrap;
 }
 
-// Заруудыг тодорхойлсон байршлуудад нь оруулах үндсэн функц
-function insertAds() {
+export function insertAds() {
   _zarInjectCSS();
-  
-  // Хуудсан дээр байгаа хуучин заруудыг цэвэрлэх
   document.querySelectorAll('.ad-wrap').forEach(el => el.remove());
-
-  // Идэвхтэй заруудыг шүүж авах
-  const ads = (window.MY_ADS || []).filter(a => a.isActive).slice(0, _ZAR_MAX);
-
+  const ads = window.MY_ADS || [];
   ads.forEach(ad => {
+    if (!ad.isActive) return;
     const row = document.getElementById(ad.afterRowId);
-    if (!row || !row.parentElement) return;
-    
-    // Тухайн мөрний (section) доор зарыг байршуулах
-    row.parentElement.insertAdjacentElement('afterend', _zarBuildEl(ad));
+    if (row && row.parentElement) {
+      row.parentElement.insertAdjacentElement('afterend', _zarBuildEl(ad));
+    }
   });
 }
 
-// Глобал байдлаар бусад JS файлууд ашиглах боломжтой болгох
+// Глобал болгох
 window.insertAds = insertAds;
-window._zarBuildEl = _zarBuildEl;
-window._zarInjectCSS = _zarInjectCSS;
-
-// КОД БҮРЭН ГАРЧ ДУУСЛАА.
+window.addEventListener('load', () => {
+    setTimeout(insertAds, 800);
+});
