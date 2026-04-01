@@ -7,13 +7,13 @@ window.MY_ADS = [
     afterRowId: 'rowFeatured',   // Онцлох киноны доор
     isActive: true,
     label: 'BANNER 1',
-    src: '' // Спонсор линк энд орно
+    src: 'https://www.profitablecpmratenetwork.com/d063gyqa?key=d754bdc9c5123dec15f7c0789fdfb1cc' // Спонсор линк энд орно
   },
   {
     afterRowId: 'rowSeries',     // Цуврал киноны доор
     isActive: true,
     label: 'BANNER 2',
-    src: ''
+    src: 'https://www.profitablecpmratenetwork.com/d063gyqa?key=d754bdc9c5123dec15f7c0789fdfb1cc'
   },
   {
     afterRowId: 'rowGames',      // Нүүр хуудас дахь тоглоомын мөрний доор
