@@ -11,7 +11,7 @@ import './games.js';
 import './hero.js';
 
 import { fillRow }         from './utils.js';
-import { buildMoviesPage } from './movies.js';
+import {} from './movies.js';
 import { buildSeriesPage } from './series.js';
 import './search.js';
 
@@ -69,6 +69,7 @@ async function loadData() {
             ? item.genre.join(',')
             : item.genre || ''
         ).toLowerCase(),
+        country: (item.country || 'other').toLowerCase(),
       };
       
       if (isSeries) {
@@ -122,18 +123,7 @@ function buildHomeRows() {
   setTimeout(() => { if (window.insertAds) window.insertAds(); }, 500);
 }
 
-window.showMoviesGrid = function() {
-  const s = document.getElementById('moviesFullSection');
-  if (!s) return;
-  if (s.style.display !== 'none') {
-    s.style.display = 'none';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  } else {
-    s.style.display = '';
-    buildMoviesPage();
-    s.scrollIntoView({ behavior: 'smooth' });
-  }
-};
+
 
 window.showSeriesGrid = function() {
   const s = document.getElementById('seriesFullSection');
