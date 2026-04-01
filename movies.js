@@ -67,12 +67,41 @@ window.openMovieDetail = function (m) {
 };
 
 // ── Кино хуудас ──────────────────────────────────────────────
+const MOVIE_COUNTRIES = [
+  { label: '🌐 Бүгд',     key: '' },
+  { label: '🇨🇳 Хятад',   key: 'chinese' },
+  { label: '🇰🇷 Солонгос', key: 'korean' },
+  { label: '🇷🇺 Орос',    key: 'russian' },
+  { label: '🌍 Бусад',    key: 'other' },
+];
+
 let moviesBuilt = false;
+let activeCountry = '';
+let activeGenreKeys = [];
 
 export function buildMoviesPage() {
   if (moviesBuilt) return;
   moviesBuilt = true;
 
+  // ── Улс шүүлтүүр ──
+  const countryBar = document.getElementById('movieCountryBar');
+  if (countryBar) {
+    countryBar.innerHTML = '';
+    MOVIE_COUNTRIES.forEach((c, i) => {
+      const pill = document.createElement('button');
+      pill.className = 'gpill country-pill' + (i === 0 ? ' on' : '');
+      pill.textContent = c.label;
+      pill.onclick = () => {
+        countryBar.querySelectorAll('.country-pill').forEach((p) => p.classList.remove('on'));
+        pill.classList.add('on');
+        activeCountry = c.key;
+        renderMoviesGrid(activeGenreKeys);
+      };
+      countryBar.appendChild(pill);
+    });
+  }
+
+  // ── Жанр шүүлтүүр ──
   const bar = document.getElementById('movieGenreBar');
   if (!bar) return;
   bar.innerHTML = '';
@@ -84,6 +113,7 @@ export function buildMoviesPage() {
     pill.onclick = () => {
       bar.querySelectorAll('.gpill').forEach((p) => p.classList.remove('on'));
       pill.classList.add('on');
+      activeGenreKeys = g.keys;
       renderMoviesGrid(g.keys);
     };
     bar.appendChild(pill);
@@ -97,10 +127,17 @@ function renderMoviesGrid(keys) {
   if (!grid) return;
   grid.innerHTML = '';
 
-  const items =
-    keys.length === 0
-      ? window.MOVIES
-      : window.MOVIES.filter((m) => keys.some((k) => m.cat.includes(k)));
+  let items = window.MOVIES;
+
+  // Улсаар шүүх
+  if (activeCountry) {
+    items = items.filter((m) => m.country === activeCountry);
+  }
+
+  // Жанраар шүүх
+  if (keys.length > 0) {
+    items = items.filter((m) => keys.some((k) => m.cat.includes(k)));
+  }
 
   const cnt = document.getElementById('moviesCount');
   if (cnt) cnt.textContent = `Нийт ${items.length} кино`;
