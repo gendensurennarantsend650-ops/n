@@ -1,0 +1,13 @@
+[
+  {
+    "type": "movie",
+    "title": "Seven",
+    "mongolian_title": "Долоо",
+    "year": 1995,
+    "ratings": { "imdb": "8.6" },
+    "poster_link": "https://image.tmdb.org/t/p/w500/9.jpg",
+    "genre": ["mystery"],
+    "country": "other",
+    "embed_links": ["https://stream.example.com/mystery1"]
+  }
+]
