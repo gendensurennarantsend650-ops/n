@@ -1,32 +1,9 @@
 [
-  {
-    "id": "m_crime_01",
-    "title": "Мөнгөний амт",
-    "year": 2012,
-    "ratings": { "imdb": "7.1" },
-    "genre": ["crime"],
-    "country": "korean",
-    "poster": "/posters/5.jpg",
-    "embed": "/movies/Мөнгөний_амт.mp4"
-  },
-  {
-    "id": "m_crime_02",
-    "title": "Манжийн есөн эрүү",
-    "year": 1994,
-    "ratings": { "imdb": "6.8" },
-    "genre": ["crime"],
-    "country": "other",
-    "poster": "/posters/9.jpg",
-    "embed": "/movies/Манжийн_есөн_эрүү.mp4"
-  },
-  {
-    "id": "m_crime_05",
-    "title": "90 Минут",
-    "year": 2012,
-    "ratings": { "imdb": "6.2" },
-    "genre": ["crime"],
-    "country": "korean",
-    "poster": "/posters/37.jpg",
-    "embed": "/movies/90_Минут.mp4"
-  }
+  {"id":"c1","title":"Мөнгөний амт","year":2012,"ratings":{"imdb":"7.1"},"genre":["crime"],"country":"korean","poster":"/posters/5.jpg","embed":"/movies/Мөнгөний_амт.mp4"},
+  {"id":"c2","title":"Манжийн есөн эрүү","year":1994,"ratings":{"imdb":"6.8"},"genre":["crime"],"country":"other","poster":"/posters/9.jpg","embed":"/movies/Манжийн_есөн_эрүү.mp4"},
+  {"id":"c3","title":"Манжийн есөн эрүү 2","year":1998,"ratings":{"imdb":"6.5"},"genre":["crime"],"country":"other","poster":"/posters/8.jpg","embed":"/movies/Манжийн_есөн_эрүү_2.mp4"},
+  {"id":"c4","title":"Нүцгэн зэвсэг","year":2002,"ratings":{"imdb":"7.5"},"genre":["crime"],"country":"other","poster":"/posters/12.jpg","embed":"/movies/Нүцгэн_зэвсэг.mp4"},
+  {"id":"c5","title":"90 Минут","year":2012,"ratings":{"imdb":"6.2"},"genre":["crime"],"country":"korean","poster":"/posters/37.jpg","embed":"/movies/90_Минут.mp4"},
+  {"id":"c6","title":"Эхнэртээ араараа тавиулаад босстойгоо нийлчихлээ","year":2023,"ratings":{"imdb":"6.0"},"genre":["crime"],"country":"korean","poster":"/posters/35.jpg","embed":"/movies/Эхнэртээ_араараа_тавиулаад_босстойгоо_нийлчихлээ.mp4"},
+  {"id":"c7","title":"Манжийн есөн эрүү (Тусгай)","year":1994,"ratings":{"imdb":"6.8"},"genre":["crime"],"country":"other","poster":"/posters/10.jpg","embed":"/movies/Манжийн_есөн_эрүү.mp4"}
 ]
