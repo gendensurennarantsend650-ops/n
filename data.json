@@ -1,1 +1,37 @@
-
+[
+  {
+    "type": "movie",
+    "title": "Галзуу агент",
+    "mongolian_title": "Галзуу агент",
+    "year": 2024,
+    "ratings": { "imdb": "7.5" },
+    "poster_link": "https://cdn.example.com/posters/galzuu-agent.jpg",
+    "genre": ["action", "thriller"],
+    "country": "korean",
+    "embed_links": ["https://stream.example.com/embed/galzuu-agent"]
+  },
+  {
+    "type": "movie",
+    "title": "The Taste of Money",
+    "mongolian_title": "Мөнгөний амт",
+    "year": 2012,
+    "ratings": { "imdb": "6.8" },
+    "poster_link": "https://cdn.example.com/posters/taste-of-money.jpg",
+    "genre": ["drama", "romance"],
+    "country": "korean",
+    "embed_links": ["https://stream.example.com/embed/taste-of-money"]
+  },
+  {
+    "type": "series",
+    "title": "Real Bot",
+    "mongolian_title": "Үйлчлэгч андроид",
+    "year": 2017,
+    "ratings": { "imdb": "6.2" },
+    "poster_link": "https://cdn.example.com/posters/real-bot.jpg",
+    "genre": ["sci-fi", "drama"],
+    "country": "korean",
+    "episodes": [
+      { "episode_number": 1, "title": "Эхлэл", "embed_links": ["https://stream.example.com/ep1"] }
+    ]
+  }
+]
