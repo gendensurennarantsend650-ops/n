@@ -1,13 +1,62 @@
 [
   {
-    "type": "movie",
-    "title": "The Godfather",
-    "mongolian_title": "Загалмайлсан эцэг",
-    "year": 1972,
-    "ratings": { "imdb": "9.2" },
-    "poster_link": "https://image.tmdb.org/t/p/w500/7.jpg",
-    "genre": ["crime"],
+    "id": "m_crime_01",
+    "title": "Мөнгөний амт",
+    "year": 2012,
+    "rating": 7.1,
+    "cat": "crime,mystery",
+    "country": "korean",
+    "poster": "/posters/5.jpg",
+    "embed": "/movies/Мөнгөний_амт.mp4"
+  },
+  {
+    "id": "m_crime_02",
+    "title": "Манжийн есөн эрүү",
+    "year": 1994,
+    "rating": 6.8,
+    "cat": "crime,history",
     "country": "other",
-    "embed_links": ["https://stream.example.com/crime1"]
+    "poster": "/posters/9.jpg",
+    "embed": "/movies/Манжийн_есөн_эрүү.mp4"
+  },
+  {
+    "id": "m_crime_03",
+    "title": "Манжийн есөн эрүү 2",
+    "year": 1998,
+    "rating": 6.5,
+    "cat": "crime,history",
+    "country": "other",
+    "poster": "/posters/8.jpg",
+    "embed": "/movies/Манжийн_есөн_эрүү_2.mp4"
+  },
+  {
+    "id": "m_crime_04",
+    "title": "Нүцгэн зэвсэг",
+    "year": 2002,
+    "rating": 7.5,
+    "cat": "action,crime",
+    "country": "other",
+    "poster": "/posters/12.jpg",
+    "embed": "/movies/Нүцгэн_зэвсэг.mp4"
+  },
+  {
+    "id": "m_crime_05",
+    "title": "90 Минут",
+    "year": 2012,
+    "rating": 6.2,
+    "cat": "crime,thriller",
+    "country": "korean",
+    "poster": "/posters/37.jpg",
+    "embed": "/movies/90_Минут.mp4"
+  },
+  {
+    "id": "m_crime_06",
+    "title": "Эхнэртээ араараа тавиулаад босстойгоо нийлчихлээ",
+    "year": 2023,
+    "rating": 6.0,
+    "cat": "crime,mystery",
+    "country": "korean",
+    "poster": "/posters/35.jpg",
+    "embed": "/movies/Эхнэртээ_араараа_тавиулаад_босстойгоо_нийлчихлээ.mp4"
   }
 ]
