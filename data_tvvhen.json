@@ -1,0 +1,13 @@
+[
+  {
+    "type": "movie",
+    "title": "Gladiator",
+    "mongolian_title": "Гладиатор",
+    "year": 2000,
+    "ratings": { "imdb": "8.5" },
+    "poster_link": "https://image.tmdb.org/t/p/w500/2.jpg",
+    "genre": ["history"],
+    "country": "other",
+    "embed_links": ["https://stream.example.com/history1"]
+  }
+]
