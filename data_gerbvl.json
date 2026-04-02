@@ -1,0 +1,13 @@
+[
+  {
+    "type": "movie",
+    "title": "Home Alone",
+    "mongolian_title": "Гэртээ ганцаараа",
+    "year": 1990,
+    "ratings": { "imdb": "7.7" },
+    "poster_link": "https://image.tmdb.org/t/p/w500/11.jpg",
+    "genre": ["family"],
+    "country": "other",
+    "embed_links": ["https://stream.example.com/family1"]
+  }
+]
