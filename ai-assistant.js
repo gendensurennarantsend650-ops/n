@@ -1,9 +1,9 @@
+// ai-assistant.js — Гол controller: нээх/хаах, мессеж илгээх
 import { aiStyles, aiHTML } from './ai-ui.js';
 import { askAI } from './ai-logic.js';
+import { getPrefs } from './ai-prefs.js';
+import { addUserMsg, addBotMsg, addTyping, addQuickChips } from './ai-messages.js';
 
-// ═══════════════════════════════════════
-// UI НЭМЭХ
-// ═══════════════════════════════════════
 document.body.insertAdjacentHTML('beforeend', aiStyles + aiHTML);
 
 const aiInput  = document.getElementById('ai-input');
@@ -15,38 +15,10 @@ const aiClose  = document.getElementById('ai-close-btn');
 
 let isOpen    = false;
 let isSending = false;
-let _weather  = null;   // 🌤️ Цаг агаарын кэш
-let _context  = {};     // AI-д дамжуулах нэгдсэн контекст
+let _weather  = null;
+let _context  = {};
 
-// ═══════════════════════════════════════
-// ⭐ 10. ХЭРЭГЛЭГЧИЙН СОНГОЛТ (localStorage)
-// ═══════════════════════════════════════
-function getPrefs() {
-  try {
-    return JSON.parse(localStorage.getItem('nb_prefs') || '{"liked":[],"disliked":[]}');
-  } catch { return { liked: [], disliked: [] }; }
-}
-
-function savePrefs(prefs) {
-  try { localStorage.setItem('nb_prefs', JSON.stringify(prefs)); } catch {}
-}
-
-function addLiked(title) {
-  const p = getPrefs();
-  if (!p.liked.includes(title)) { p.liked.push(title); savePrefs(p); }
-}
-
-function addDisliked(title) {
-  const p = getPrefs();
-  if (!p.disliked.includes(title)) { p.disliked.push(title); savePrefs(p); }
-  // Таалагдаагүй бол liked-аас хас
-  p.liked = p.liked.filter(t => t !== title);
-  savePrefs(p);
-}
-
-// ═══════════════════════════════════════
-// 🌤️ 7. ЦАГ АГААР ТАТАХ
-// ═══════════════════════════════════════
+// ── Цаг агаар татах ──────────────────────────────────────────
 async function fetchWeather() {
   try {
     const key  = window.OW_KEY;
@@ -65,9 +37,7 @@ async function fetchWeather() {
   } catch { return null; }
 }
 
-// ═══════════════════════════════════════
-// 📅 4. ОДООГИЙН ЦАГ АВАХ
-// ═══════════════════════════════════════
+// ── Одоогийн цаг ─────────────────────────────────────────────
 function getCurrentTime() {
   const h = new Date().getHours();
   if (h >= 6  && h < 11) return `${h}:00 (өглөө)`;
@@ -77,48 +47,19 @@ function getCurrentTime() {
   return `${h}:00 (гүн шөнө)`;
 }
 
-// ═══════════════════════════════════════
-// 💬 ТАВТАЙ МОРИЛОХ МЕССЕЖ
-// ═══════════════════════════════════════
-const WELCOME_MSG = `Nabooshy сайтад тавтай морилно уу! 🎬✨
+const WELCOME_MSG = `Nabooshy сайтад тавтай морилно уу! 🎬✨\n\nТа манай сайт дотор дуртай кино, цуврал, тоглоомоо **үнэгүй** үзнэ үү.\n\n⚠️ Манайх ямар нэгэн хэлбэрээр мөнгө авдаггүй. Хэрвээ танаас мөнгө нэхэж байвал **луйвар** болно — өөрийгөө хамгаалаарай!\n\nДоорх товчнуудаас сонгох эсвэл шууд бичнэ үү 👇`;
 
-Та манай сайт дотор дуртай кино, цуврал, тоглоомоо **үнэгүй** үзнэ үү.
-
-⚠️ Манайх ямар нэгэн хэлбэрээр мөнгө авдаггүй. Хэрвээ танаас мөнгө нэхэж байвал **луйвар** болно — өөрийгөө хамгаалаарай!
-
-Доорх товчнуудаас сонгох эсвэл шууд бичнэ үү 👇`;
-
-// ═══════════════════════════════════════
-// 🚀 ХУРДАН САНАЛ ТОВЧНУУД (Quick Chips)
-// ═══════════════════════════════════════
-const QUICK_CHIPS = [
-  { label: '🎭 Сэтгэлтэйгээр хайх',       msg: 'Өнөөдрийн сэтгэл байдалд тохирсон кино санал болго' },
-  { label: '🌤️ Цаг агаарт тохирсон',       msg: 'Одоогийн цаг агаарт тохирсон кино санал болго' },
-  { label: '⭐ Хамгийн шилдэг кинонууд',    msg: 'Хамгийн өндөр IMDB оноотой кинонуудыг харуул' },
-  { label: '🎮 Тоглоом санал болго',        msg: 'Надад тоглоом санал болго' },
-];
-
-// ═══════════════════════════════════════
-// 🔓 ЧАТ НЭЭХ / ХААХ
-// ═══════════════════════════════════════
+// ── Чат нээх / хаах ──────────────────────────────────────────
 async function toggleChat() {
   isOpen = !isOpen;
   if (isOpen) {
     aiBox.classList.add('open');
     aiInput.focus();
-
     if (aiMsgs.children.length === 0) {
-      // Тавтай морилох мессеж — API дуудлага ХИЙХГҮЙ
-      addBotMsg(WELCOME_MSG);
-      addQuickChips();
-
-      // Арын ажлыг далдуур хийнэ
+      addBotMsg(aiMsgs, WELCOME_MSG);
+      addQuickChips(aiMsgs, handleSend);
       _weather = await fetchWeather();
-      _context = {
-        weather     : _weather,
-        userPrefs   : getPrefs(),
-        currentTime : getCurrentTime()
-      };
+      _context = { weather: _weather, userPrefs: getPrefs(), currentTime: getCurrentTime() };
     }
   } else {
     aiBox.classList.remove('open');
@@ -128,25 +69,21 @@ async function toggleChat() {
 aiToggle.onclick = toggleChat;
 aiClose.onclick  = toggleChat;
 
-// ═══════════════════════════════════════
-// ✉️ МЕССЕЖ ИЛГЭЭХ
-// ═══════════════════════════════════════
+// ── Мессеж илгээх ────────────────────────────────────────────
 async function handleSend(text) {
   const msg = (text || aiInput.value).trim();
   if (!msg || isSending) return;
 
-  // Chips-ийг нуух
   const chipsEl = document.getElementById('ai-chips-row');
   if (chipsEl) chipsEl.remove();
 
-  isSending     = true;
+  isSending = true;
   aiSend.disabled = true;
   aiInput.value = '';
 
-  addUserMsg(msg);
-  const typingEl = addTyping();
+  addUserMsg(aiMsgs, msg);
+  const typingEl = addTyping(aiMsgs);
 
-  // Context-ийг шинэчлэх
   _context.userPrefs   = getPrefs();
   _context.currentTime = getCurrentTime();
 
@@ -154,14 +91,14 @@ async function handleSend(text) {
     msg,
     (fullText) => {
       typingEl.remove();
-      addBotMsg(fullText, true); // true = rating товч харуулах
+      addBotMsg(aiMsgs, fullText, true);
       isSending       = false;
       aiSend.disabled = false;
       aiInput.focus();
     },
     (errMsg) => {
       typingEl.remove();
-      addBotMsg('⚠️ ' + errMsg, false);
+      addBotMsg(aiMsgs, '⚠️ ' + errMsg, false);
       isSending       = false;
       aiSend.disabled = false;
     },
@@ -169,99 +106,7 @@ async function handleSend(text) {
   );
 }
 
-// ═══════════════════════════════════════
-// 🧱 UI ЭЛЕМЕНТҮҮД
-// ═══════════════════════════════════════
-function addUserMsg(text) {
-  const row = document.createElement('div');
-  row.className = 'ai-row user';
-  row.innerHTML = `<div class="ai-bbl">${escHtml(text)}</div>`;
-  aiMsgs.appendChild(row);
-  scrollDown();
-}
-
-// ⭐ 10. Үнэлгээний товч бүхий бот мессеж
-function addBotMsg(text, showRating = false) {
-  const row = document.createElement('div');
-  row.className = 'ai-row bot';
-  const fmt = escHtml(text)
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\n/g, '<br>');
-
-  let ratingHtml = '';
-  if (showRating) {
-    ratingHtml = `
-    <div class="ai-rating">
-      <button class="ai-rate-btn like"  title="Таалагдсан">👍</button>
-      <button class="ai-rate-btn dislike" title="Таалагдаагүй">👎</button>
-    </div>`;
-  }
-
-  row.innerHTML = `<div class="ai-bbl">${fmt}${ratingHtml}</div>`;
-
-  // Үнэлгээний товчны event
-  if (showRating) {
-    const likeBtn    = row.querySelector('.like');
-    const dislikeBtn = row.querySelector('.dislike');
-
-    likeBtn.onclick = () => {
-      addLiked(text.substring(0, 40)); // Хариултын эхний 40 тэмдэгтийг хадгална
-      likeBtn.textContent    = '✅';
-      dislikeBtn.disabled    = true;
-      likeBtn.disabled       = true;
-    };
-    dislikeBtn.onclick = () => {
-      addDisliked(text.substring(0, 40));
-      dislikeBtn.textContent = '❌';
-      likeBtn.disabled       = true;
-      dislikeBtn.disabled    = true;
-    };
-  }
-
-  aiMsgs.appendChild(row);
-  scrollDown();
-}
-
-// 💬 Quick Chips товчнууд
-function addQuickChips() {
-  const wrap = document.createElement('div');
-  wrap.id        = 'ai-chips-row';
-  wrap.className = 'ai-chips';
-  QUICK_CHIPS.forEach(chip => {
-    const btn = document.createElement('button');
-    btn.className   = 'ai-chip';
-    btn.textContent = chip.label;
-    btn.onclick     = () => handleSend(chip.msg);
-    wrap.appendChild(btn);
-  });
-  aiMsgs.appendChild(wrap);
-  scrollDown();
-}
-
-function addTyping() {
-  const row = document.createElement('div');
-  row.className = 'ai-row bot';
-  row.innerHTML = `<div class="ai-bbl"><div class="ai-typing"><span></span><span></span><span></span></div></div>`;
-  aiMsgs.appendChild(row);
-  scrollDown();
-  return row;
-}
-
-function scrollDown() {
-  requestAnimationFrame(() => { aiMsgs.scrollTop = aiMsgs.scrollHeight; });
-}
-
-function escHtml(str) {
-  return String(str || '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g,  '&lt;')
-    .replace(/>/g,  '&gt;')
-    .replace(/"/g,  '&quot;');
-}
-
-// ═══════════════════════════════════════
-// ⌨️ KEYBOARD + SEND ТОВЧ
-// ═══════════════════════════════════════
+// ── Keyboard + send товч ─────────────────────────────────────
 aiInput.onkeydown = (e) => {
   if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
 };
