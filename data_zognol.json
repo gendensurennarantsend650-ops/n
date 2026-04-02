@@ -1,13 +1,14 @@
 [
   {
-    "type": "movie",
-    "title": "Inception",
-    "mongolian_title": "Эхлэл",
-    "year": 2010,
-    "ratings": { "imdb": "8.8" },
-    "poster_link": "https://image.tmdb.org/t/p/w500/5.jpg",
-    "genre": ["sci-fi"],
+    "id": "a1",
+    "title": "Хараал тайлагч",
+    "year": 2022,
+    "ratings": {
+      "imdb": "6.5"
+    },
+    "genre": ["horror"],
     "country": "other",
-    "embed_links": ["https://stream.example.com/scifi1"]
+    "poster": "/posters/2.jpg",
+    "embed": "/movies/Хараал_тайлагч.mp4"
   }
 ]
