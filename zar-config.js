@@ -1,27 +1,23 @@
 // zar-config.js
+// Энд бүх зар сурталчилгааны линкүүдээ төвлөрүүлнэ
+window.GLOBAL_ADS = {
+  popunder: "https://pl29031250.profitablecpmratenetwork.com/2b/41/0f/2b410fc6e0f434fbfbf6ee884d17494e.js",
+  socialBar: "https://pl29031251.profitablecpmratenetwork.com/2c/09/0a/2c090a62f0540790ef8769298e4702a4.js"
+};
+
 window.MY_ADS = [
   {
-    afterRowId: 'rowFeatured', // "Онцлох бүтээлүүд"-ийн доор
+    afterRowId: 'rowFeatured',
     isActive: true,
     label: 'PREMIUM AD',
-    // Кино театрын гоё зураг
     image: 'https://img.freepik.com/free-vector/movie-theater-concept-banner-template_23-2148175024.jpg', 
     link: 'https://www.profitablecpmratenetwork.com/d063gyqa?key=d754bdc9c5123dec15f7c0789fdfb1cc'
   },
   {
-    afterRowId: 'rowSeries', // "Цуврал кино"-ны доор
+    afterRowId: 'rowSeries',
     isActive: true,
     label: 'WATCH NOW',
-    // Стриминг үйлчилгээний гоё зураг
     image: 'https://img.freepik.com/free-vector/streaming-online-app-concept-banner_23-2148530364.jpg',
-    link: 'https://www.profitablecpmratenetwork.com/d063gyqa?key=d754bdc9c5123dec15f7c0789fdfb1cc'
-  },
-  {
-    afterRowId: 'rowInternational', // "Дэлхийн кино"-ны доор
-    isActive: true,
-    label: 'SPONSORED',
-    // Попкорнтой гоё зураг
-    image: 'https://t3.ftcdn.net/jpg/02/60/34/04/360_F_260340451_7Ocl0Uo2Z7vP051U3NfMvVdfBvV2kGk8.jpg',
     link: 'https://www.profitablecpmratenetwork.com/d063gyqa?key=d754bdc9c5123dec15f7c0789fdfb1cc'
   }
 ];
