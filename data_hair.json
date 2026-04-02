@@ -1,0 +1,13 @@
+[
+  {
+    "type": "movie",
+    "title": "Titanic",
+    "mongolian_title": "Титаник",
+    "year": 1997,
+    "ratings": { "imdb": "7.9" },
+    "poster_link": "https://image.tmdb.org/t/p/w500/8.jpg",
+    "genre": ["romance"],
+    "country": "other",
+    "embed_links": ["https://stream.example.com/romance1"]
+  }
+]
