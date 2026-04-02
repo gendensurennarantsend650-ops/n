@@ -9,5 +9,17 @@
     "genre": ["adventure"],
     "country": "other",
     "embed_links": ["https://stream.example.com/adventure1"]
+  },
+  {
+    "id": "z1",
+    "title": "Үйлчлэгч андроид",
+    "year": 2017,
+    "ratings": {
+      "imdb": "6.2"
+    },
+    "genre": ["sci-fi"],
+    "country": "korean",
+    "poster": "/posters/31.jpg",
+    "embed": "/movies/Үйлчлэгч_андроид.mp4"
   }
 ]
