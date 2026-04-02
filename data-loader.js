@@ -21,6 +21,7 @@ export async function loadData() {
     const files = [
       'data_horror.json',
       'data_drama.json',
+      'data_tsuwral.json',
       'data_action.json',
       'data_comedy.json'
     ];
