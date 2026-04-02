@@ -2,7 +2,7 @@
 import './player-hls.js';
 
 // 1. Энд өөрийн Worker-ийн хаягийг оруулна
-const WORKER_URL = "dark-meadow-83ae.narhantv.workers.dev";
+const WORKER_URL = "https://dark-meadow-83ae.narhantv.workers.dev";
 
 // Нэвтрэхийн өмнө дарсан кинонийг хадгалах
 window._pendingMovie = null;
