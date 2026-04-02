@@ -9,5 +9,17 @@
     "genre": ["action"],
     "country": "other",
     "embed_links": ["https://stream.example.com/action1"]
+  },
+  {
+    "id": "ac1",
+    "title": "Галзуу агент",
+    "year": 2024,
+    "ratings": {
+      "imdb": "7.5"
+    },
+    "genre": ["action"],
+    "country": "korean",
+    "poster": "/posters/30.jpg",
+    "embed": "/movies/Галзуу_агент.mp4"
   }
 ]
