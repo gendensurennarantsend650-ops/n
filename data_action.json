@@ -1,0 +1,13 @@
+[
+  {
+    "type": "movie",
+    "title": "John Wick",
+    "mongolian_title": "Жон Уик",
+    "year": 2014,
+    "ratings": { "imdb": "7.4" },
+    "poster_link": "https://image.tmdb.org/t/p/w500/fZPSd9QxV94S9s5s5s5s5s5s5s5.jpg",
+    "genre": ["action"],
+    "country": "other",
+    "embed_links": ["https://stream.example.com/action1"]
+  }
+]
