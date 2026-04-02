@@ -53,7 +53,8 @@ window.gotoPage = function (p) {
 
 loadData();
 
-// ── 🛡️ Хамгаалалт (Anti-Inspect, No Right Click) ─────────────
+// ── 🛡️ Хамгаалалт (Түр зуур идэвхгүй болгов) ─────────────
+/* 
 document.addEventListener('contextmenu', e => e.preventDefault());
 document.onkeydown = function (e) {
   if (e.keyCode === 123)                                return false; // F12
@@ -62,5 +63,6 @@ document.onkeydown = function (e) {
   if (e.ctrlKey && e.shiftKey && e.keyCode === 74)     return false; // Ctrl+Shift+J
   if (e.ctrlKey && e.keyCode === 85)                   return false; // Ctrl+U
 };
+*/
 console.log('%cЗОГС!', 'color: red; font-size: 50px; font-weight: bold;');
 console.log('%cЭнэ сайтын кодыг хуулахыг хориглоно.', 'font-size: 18px;');
