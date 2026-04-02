@@ -1,0 +1,13 @@
+[
+  {
+    "type": "movie",
+    "title": "The Godfather",
+    "mongolian_title": "Загалмайлсан эцэг",
+    "year": 1972,
+    "ratings": { "imdb": "9.2" },
+    "poster_link": "https://image.tmdb.org/t/p/w500/7.jpg",
+    "genre": ["crime"],
+    "country": "other",
+    "embed_links": ["https://stream.example.com/crime1"]
+  }
+]
