@@ -1,13 +1,9 @@
 [
-  {
-    "type": "movie",
-    "title": "Titanic",
-    "mongolian_title": "Титаник",
-    "year": 1997,
-    "ratings": { "imdb": "7.9" },
-    "poster_link": "https://image.tmdb.org/t/p/w500/8.jpg",
-    "genre": ["romance"],
-    "country": "other",
-    "embed_links": ["https://stream.example.com/romance1"]
-  }
+  {"id":"h1","title":"Секс ба Люсиа","year":2001,"ratings":{"imdb":"7.1"},"genre":["romance"],"country":"other","poster":"/posters/20.jpg","embed":"/movies/Секс_ба_Люсиа.mp4"},
+  {"id":"h2","title":"Сафо","year":2008,"ratings":{"imdb":"6.0"},"genre":["romance"],"country":"other","poster":"/posters/26.jpg","embed":"/movies/Сафо.mp4"},
+  {"id":"h3","title":"Хайртай хосууд","year":2010,"ratings":{"imdb":"6.8"},"genre":["romance"],"country":"korean","poster":"/posters/14.jpg","embed":"/movies/Хайртай_хосууд.mp4"},
+  {"id":"h4","title":"Хайрын ид шид","year":2002,"ratings":{"imdb":"6.5"},"genre":["romance"],"country":"korean","poster":"/posters/13.jpg","embed":"/movies/Хайрын_ид_шид.mp4"},
+  {"id":"h5","title":"Хайрын таван мэдрэхүй","year":2009,"ratings":{"imdb":"6.4"},"genre":["romance"],"country":"korean","poster":"/posters/7.jpg","embed":"/movies/Хайрын_таван_мэдрэхүй.mp4"},
+  {"id":"h6","title":"Амтат шөнийн дараах хайр","year":2023,"ratings":{"imdb":"6.5"},"genre":["romance"],"country":"korean","poster":"/posters/21.jpg","embed":"/movies/Амтат_шөнийн_дараах_хайр.mp4"},
+  {"id":"h7","title":"Амтат нислэг","year":2015,"ratings":{"imdb":"6.0"},"genre":["romance"],"country":"korean","poster":"/posters/32.jpg","embed":"/movies/Амтат_нисслэг.mp4"}
 ]
