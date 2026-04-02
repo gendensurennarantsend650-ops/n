@@ -1,13 +1,7 @@
 [
-  {
-    "type": "movie",
-    "title": "Gladiator",
-    "mongolian_title": "Гладиатор",
-    "year": 2000,
-    "ratings": { "imdb": "8.5" },
-    "poster_link": "https://image.tmdb.org/t/p/w500/2.jpg",
-    "genre": ["history"],
-    "country": "other",
-    "embed_links": ["https://stream.example.com/history1"]
-  }
+  {"id":"t1","title":"Үзэсгэлэнт бүсгүйн хөрөг","year":2008,"ratings":{"imdb":"7.3"},"genre":["history"],"country":"korean","poster":"/posters/21.jpg","embed":"/movies/ҮЗэсгэлэнт_бүсгүйн_хөрөг.mp4"},
+  {"id":"t2","title":"Сарны гэрэлд асах хүсэл","year":2014,"ratings":{"imdb":"7.2"},"genre":["history"],"country":"korean","poster":"/posters/36.jpg","embed":"/movies/Сарны_гэрэлд_асах_хүсэл.mp4"},
+  {"id":"t3","title":"Шивэгчин","year":2010,"ratings":{"imdb":"7.0"},"genre":["history"],"country":"korean","poster":"/posters/6.jpg","embed":"/movies/Шивэгчин.mp4"},
+  {"id":"t4","title":"Хааны татвар эм","year":2012,"ratings":{"imdb":"6.9"},"genre":["history"],"country":"korean","poster":"/posters/27.jpg","embed":"/movies/Хааны_татвар_эм.mp4"},
+  {"id":"t5","title":"Үзэсгэлэнт бүсгүй (Тусгай)","year":2008,"ratings":{"imdb":"7.3"},"genre":["history"],"country":"korean","poster":"/posters/3.jpg","embed":"/movies/ҮЗэсгэлэнт_бүсгүйн_хөрөг.mp4"}
 ]
