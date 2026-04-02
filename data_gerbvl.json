@@ -1,62 +1,22 @@
 [
   {
-    "id": "m_his_01",
-    "title": "Үзэсгэлэнт бүсгүйн хөрөг",
-    "year": 2008,
-    "rating": 7.3,
-    "cat": "history,romance",
-    "country": "korean",
-    "poster": "/posters/21.jpg",
-    "embed": "/movies/ҮЗэсгэлэнт_бүсгүйн_хөрөг.mp4"
-  },
-  {
-    "id": "m_his_02",
-    "title": "Сарны гэрэлд асах хүсэл",
+    "id": "m_fam_01",
+    "title": "Ээжийн найз",
     "year": 2014,
-    "rating": 7.2,
-    "cat": "history,romance",
+    "ratings": { "imdb": "6.4" },
+    "genre": ["family"],
     "country": "korean",
-    "poster": "/posters/36.jpg",
-    "embed": "/movies/Сарны_гэрэлд_асах_хүсэл.mp4"
+    "poster": "/posters/23.jpg",
+    "embed": "/movies/Ээжийн_найз.mp4"
   },
   {
-    "id": "m_his_03",
-    "title": "Шивэгчин",
-    "year": 2010,
-    "rating": 7.0,
-    "cat": "history,romance",
+    "id": "m_fam_02",
+    "title": "Гэр бүлийн халуухан нууц",
+    "year": 2021,
+    "ratings": { "imdb": "6.7" },
+    "genre": ["family"],
     "country": "korean",
-    "poster": "/posters/6.jpg",
-    "embed": "/movies/Шивэгчин.mp4"
-  },
-  {
-    "id": "m_his_04",
-    "title": "Хааны татвар эм",
-    "year": 2012,
-    "rating": 6.9,
-    "cat": "history,romance",
-    "country": "korean",
-    "poster": "/posters/27.jpg",
-    "embed": "/movies/Хааны_татвар_эм.mp4"
-  },
-  {
-    "id": "m_sci_01",
-    "title": "Үйлчлэгч андроид",
-    "year": 2017,
-    "rating": 6.2,
-    "cat": "sci-fi,romance",
-    "country": "korean",
-    "poster": "/posters/31.jpg",
-    "embed": "/movies/Үйлчлэгч_андроид.mp4"
-  },
-  {
-    "id": "m_fan_01",
-    "title": "Хараал тайлагч",
-    "year": 2022,
-    "rating": 6.5,
-    "cat": "fantasy,horror",
-    "country": "other",
-    "poster": "/posters/2.jpg",
-    "embed": "/movies/Хараал_тайлагч.mp4"
+    "poster": "/posters/29.jpg",
+    "embed": "/movies/Гэр_бүлийн_халуухан_нууц.mp4"
   }
 ]
