@@ -1,5 +1,8 @@
-// data-loader.js — Олон JSON файлаас өгөгдөл татах
+// data-loader.js
 import { fillRow } from './utils.js';
+
+// 1. Өөрийн Worker-ийн хаягийг энд заавал зөв оруул (https://-тэй нь)
+const WORKER_URL = "https://dark-meadow-83ae.narhantv.workers.dev";
 
 function decodeLink(link) {
   if (!link) return '';
@@ -9,82 +12,60 @@ function decodeLink(link) {
 
 export async function loadData() {
   try {
-    const titleEl = document.getElementById('appTitle');
-    const phoneEl = document.getElementById('contactPhoneEl');
-    if (titleEl) titleEl.textContent = `Nabooshy - ${window.CURRENT_YEAR || 2026} Оны Ухаалаг Платформ`;
-    if (phoneEl) phoneEl.textContent = window.CONTACT_PHONE || '9937-6238';
-
     window.MOVIES = [];
     window.SERIES = [];
 
-    // Энд өөрийн бүх JSON файлын нэрсийг бичнэ
     const files = [
-      'data_horror.json',
-      'data_drama.json',
-      'data_tsuwral.json',
-      'data_action.json',
-      'data_adal.json',
-      'data_tvvhen.json',
-      'data_aimshig.json',
-      'data_trailer.json',
-      'data_zognol.json',
-      'data_hvvhed.json',
-      'data_gemt.json',
-      'data_hair.json',
-      'data_nuutslag.json',
-      'data_barimt.json',
-      'data_gerbvl.json',
-      'data_daintai.json',
-      'data_namtar.json',
-      'data_comedy.json'
+      'data_horror.json', 'data_drama.json', 'data_tsuwral.json',
+      'data_action.json', 'data_adal.json', 'data_tvvhen.json',
+      'data_aimshig.json', 'data_trailer.json', 'data_zognol.json',
+      'data_hvvhed.json', 'data_gemt.json', 'data_hair.json',
+      'data_nuutslag.json', 'data_barimt.json', 'data_gerbvl.json',
+      'data_daintai.json', 'data_namtar.json', 'data_comedy.json'
     ];
 
-    let globalIndex = 0; // ID давхцахаас сэргийлэх
+    let globalIndex = 0;
 
-    // Бүх файлыг зэрэг татах
     const responses = await Promise.all(files.map(file => 
       fetch(file + '?t=' + new Date().getTime()).then(res => res.json()).catch(e => [])
     ));
 
-    // Бүх өгөгдлийг нэгтгэж боловсруулах
     responses.forEach(json => {
       const raw = json.data || json;
       if (!Array.isArray(raw)) return;
 
       raw.forEach((item) => {
         const isSeries = item.type?.toLowerCase().includes('series');
+        
+        // Зургийн замыг тодорхойлох (Worker-ийн хаягийг залгах)
+        // JSON-д 'poster' эсвэл 'poster_link' ашигласан бол хоёуланг нь танина
+        let pLink = item.poster_link || item.poster || '';
+        if (pLink && !pLink.startsWith('http')) {
+          pLink = WORKER_URL + (pLink.startsWith('/') ? '' : '/') + pLink;
+        }
+
         const base = {
-          id: (isSeries ? 's' : 'm') + globalIndex++, // Давхцахгүй ID
+          id: (isSeries ? 's' : 'm') + globalIndex++,
           title: item.mongolian_title || item.title,
           title_en: item.title,
-          year: item.year || window.FALLBACK_YEAR || 2024,
-          rating: item.ratings?.imdb ? parseFloat(item.ratings.imdb) : (window.FALLBACK_RATING || 7.0),
-          poster: (item.poster_link || '').replace(
-            /http(s)?:\/\/www\.themoviedb\.org\/t\/p\/(original|w500)\//g,
-            'https://image.tmdb.org/t/p/w500/'
-          ),
-          cat: (Array.isArray(item.genre) ? item.genre.join(',') : item.genre || '').toLowerCase(),
+          year: item.year || 2024,
+          rating: item.ratings?.imdb || item.rating || 7.0,
+          poster: pLink, // Энд эцсийн зургийн линк орно
+          cat: (Array.isArray(item.genre) ? item.genre.join(',') : (item.genre || item.cat || '')).toLowerCase(),
           country: (item.country || 'other').toLowerCase(),
         };
 
         if (isSeries) {
-          const decodedEpisodes = (item.episodes || []).map(ep => ({
-            ...ep,
-            embed_links: ep.embed_links ? [decodeLink(ep.embed_links[0])] : []
-          }));
-          window.SERIES.push({ ...base, episodes: decodedEpisodes });
+          window.SERIES.push({ ...base, episodes: item.episodes || [] });
         } else {
-          window.MOVIES.push({ ...base, embed: decodeLink(item.embed_links?.[0]) });
+          window.MOVIES.push({ ...base, embed: item.embed_links?.[0] || item.embed || '' });
         }
       });
     });
 
     buildHomeRows();
-    if (window.fetchTMDBNowPlaying) window.fetchTMDBNowPlaying();
-
   } catch (e) {
-    window.toast('Өгөгдөл татахад алдаа!');
-    console.error(e);
+    console.error("Алдаа:", e);
   }
 }
 
@@ -113,7 +94,4 @@ function buildHomeRows() {
       }
     });
   }
-
-  if (window.buildGamesRow) window.buildGamesRow();
-  setTimeout(() => { if (window.insertAds) window.insertAds(); }, 500);
 }
