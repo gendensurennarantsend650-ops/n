@@ -23,6 +23,19 @@ export async function loadData() {
       'data_drama.json',
       'data_tsuwral.json',
       'data_action.json',
+      'data_adalywdal.json',
+      'data_tvvhen.json',
+      'data_aimshig.json',
+      'data_trailer.json',
+      'data_zognol.json',
+      'data_hvvhed.json',
+      'data_gemthereg.json',
+      'data_hairdurlal.json',
+      'data_nuutslag.json',
+      'data_barimtat.json',
+      'data_gerbvliin.json',
+      'data_daintai.json',
+      'data_namtar.json',
       'data_comedy.json'
     ];
 
