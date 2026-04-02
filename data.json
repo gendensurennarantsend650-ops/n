@@ -1,1 +1,108 @@
-
+{
+  "metadata": {
+    "source": "user_upload_image",
+    "generated_at": "2026-04-03T12:15:00Z",
+    "total_count": 10
+  },
+  "movies": [
+    {
+      "id": "movie-001",
+      "title_mn": "Галзуу агент",
+      "year": null,
+      "maturity_rating": "18+",
+      "has_subtitles": true,
+      "poster_url": "https://cdn.example.com/posters/galzuu-agent.jpg",
+      "embed_url": "https://stream.example.com/embed/galzuu-agent"
+    },
+    {
+      "id": "movie-002",
+      "title_mn": "Мөнгөний амт",
+      "original_title": "The Taste of Money",
+      "year": 2012,
+      "maturity_rating": "18+",
+      "has_subtitles": true,
+      "poster_url": "https://cdn.example.com/posters/taste-of-money.jpg",
+      "embed_url": "https://stream.example.com/embed/taste-of-money"
+    },
+    {
+      "id": "movie-003",
+      "title_mn": "Үйлчлэгч андроид",
+      "original_title": "Real Bot",
+      "year": 2017,
+      "maturity_rating": "18+",
+      "has_subtitles": true,
+      "poster_url": "https://cdn.example.com/posters/real-bot.jpg",
+      "embed_url": "https://stream.example.com/embed/real-bot"
+    },
+    {
+      "id": "movie-004",
+      "title_mn": "Секс бол юу ч биш",
+      "original_title": "Sex Is Zero",
+      "year": 2002,
+      "maturity_rating": "18+",
+      "has_subtitles": true,
+      "poster_url": "https://cdn.example.com/posters/sex-is-zero.jpg",
+      "embed_url": "https://stream.example.com/embed/sex-is-zero"
+    },
+    {
+      "id": "movie-005",
+      "title_mn": "Сарны гэрэлд асах хүсэл",
+      "original_title": "Obsessed",
+      "year": 2014,
+      "maturity_rating": "18+",
+      "has_subtitles": true,
+      "poster_url": "https://cdn.example.com/posters/obsessed.jpg",
+      "embed_url": "https://stream.example.com/embed/obsessed"
+    },
+    {
+      "id": "movie-006",
+      "title_mn": "전망좋은집",
+      "original_title": "House with a Good View",
+      "year": 2012,
+      "maturity_rating": "18+",
+      "has_subtitles": true,
+      "poster_url": "https://cdn.example.com/posters/house-with-a-good-view.jpg",
+      "embed_url": "https://stream.example.com/embed/house-with-a-good-view"
+    },
+    {
+      "id": "movie-007",
+      "title_mn": "САФО",
+      "original_title": "Sappho",
+      "year": 2008,
+      "maturity_rating": "18+",
+      "has_subtitles": true,
+      "poster_url": "https://cdn.example.com/posters/sappho.jpg",
+      "embed_url": "https://stream.example.com/embed/sappho"
+    },
+    {
+      "id": "movie-008",
+      "title_mn": "Тодорхойгүй",
+      "original_title": null,
+      "year": null,
+      "maturity_rating": "18+",
+      "has_subtitles": true,
+      "poster_url": "https://cdn.example.com/posters/unknown-008.jpg",
+      "embed_url": "https://stream.example.com/embed/unknown-008"
+    },
+    {
+      "id": "movie-009",
+      "title_mn": "Woman and the Wall",
+      "original_title": "Woman and the Wall",
+      "year": 2006,
+      "maturity_rating": "18+",
+      "has_subtitles": true,
+      "poster_url": "https://cdn.example.com/posters/woman-and-the-wall.jpg",
+      "embed_url": "https://stream.example.com/embed/woman-and-the-wall"
+    },
+    {
+      "id": "movie-010",
+      "title_mn": "방자전",
+      "original_title": "The Servant",
+      "year": 2010,
+      "maturity_rating": "18+",
+      "has_subtitles": true,
+      "poster_url": "https://cdn.example.com/posters/the-servant.jpg",
+      "embed_url": "https://stream.example.com/embed/the-servant"
+    }
+  ]
+}
