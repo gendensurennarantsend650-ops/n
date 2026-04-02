@@ -1,22 +1,12 @@
 [
-  {
-    "id": "m_mys_01",
-    "title": "Миний нууц хамтрагч",
-    "year": 2011,
-    "ratings": { "imdb": "6.5" },
-    "genre": ["mystery"],
-    "country": "korean",
-    "poster": "/posters/28.jpg",
-    "embed": "/movies/Миний_нууц_хамтрагч.mp4"
-  },
-  {
-    "id": "m_mys_02",
-    "title": "Хүн бүрт нууц байдаг",
-    "year": 2004,
-    "ratings": { "imdb": "7.2" },
-    "genre": ["mystery"],
-    "country": "korean",
-    "poster": "/posters/17.jpg",
-    "embed": "/movies/Хүн_бүрт_нууц_байдаг.mp4"
-  }
+  {"id":"n1","title":"Миний нууц хамтрагч","year":2011,"ratings":{"imdb":"6.5"},"genre":["mystery"],"country":"korean","poster":"/posters/28.jpg","embed":"/movies/Миний_нууц_хамтрагч.mp4"},
+  {"id":"n2","title":"Хүн бүрт нууц байдаг","year":2004,"ratings":{"imdb":"7.2"},"genre":["mystery"],"country":"korean","poster":"/posters/17.jpg","embed":"/movies/Хүн_бүрт_нууц_байдаг.mp4"},
+  {"id":"n3","title":"Хананы цаана","year":2006,"ratings":{"imdb":"6.3"},"genre":["mystery"],"country":"other","poster":"/posters/24.jpg","embed":"/movies/Хананы_цаана.mp4"},
+  {"id":"n4","title":"Сексийн донтон","year":2013,"ratings":{"imdb":"6.8"},"genre":["mystery"],"country":"other","poster":"/posters/25.jpg","embed":"/movies/Сексийн_донтон.mp4"},
+  {"id":"n5","title":"Нууц","year":2000,"ratings":{"imdb":"7.0"},"genre":["mystery"],"country":"korean","poster":"/posters/11.jpg","embed":"/movies/Нууц.mp4"},
+  {"id":"n6","title":"залуу охин","year":2012,"ratings":{"imdb":"7.4"},"genre":["mystery"],"country":"korean","poster":"/posters/33.jpg","embed":"/movies/залуу_охин.mp4"},
+  {"id":"n7","title":"Сайхан гэр","year":2012,"ratings":{"imdb":"6.1"},"genre":["mystery"],"country":"korean","poster":"/posters/38.jpg","embed":"/movies/Сайхан_гэр.mp4"},
+  {"id":"n8","title":"Миний боол болооч","year":2012,"ratings":{"imdb":"6.0"},"genre":["mystery"],"country":"other","poster":"/posters/19.jpg","embed":"/movies/Миний_боол_болооч.mp4"},
+  {"id":"n9","title":"Мунаг эрийн түүх","year":2015,"ratings":{"imdb":"6.2"},"genre":["mystery"],"country":"other","poster":"/posters/18.jpg","embed":"/movies/Мунаг_эрийн_түүх.mp4"},
+  {"id":"n10","title":"Надад туслаач, Эрос","year":2007,"ratings":{"imdb":"6.7"},"genre":["mystery"],"country":"other","poster":"/posters/16.jpg","embed":"/movies/Надад_туслаач,_Эрос.mp4"}
 ]
