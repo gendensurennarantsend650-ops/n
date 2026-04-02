@@ -3,8 +3,8 @@
     "id": "m_mys_01",
     "title": "Миний нууц хамтрагч",
     "year": 2011,
-    "rating": 6.5,
-    "cat": "mystery,romance",
+    "ratings": { "imdb": "6.5" },
+    "genre": ["mystery"],
     "country": "korean",
     "poster": "/posters/28.jpg",
     "embed": "/movies/Миний_нууц_хамтрагч.mp4"
@@ -13,90 +13,10 @@
     "id": "m_mys_02",
     "title": "Хүн бүрт нууц байдаг",
     "year": 2004,
-    "rating": 7.2,
-    "cat": "mystery,romance",
+    "ratings": { "imdb": "7.2" },
+    "genre": ["mystery"],
     "country": "korean",
     "poster": "/posters/17.jpg",
     "embed": "/movies/Хүн_бүрт_нууц_байдаг.mp4"
-  },
-  {
-    "id": "m_mys_03",
-    "title": "Хананы цаана",
-    "year": 2006,
-    "rating": 6.3,
-    "cat": "mystery,romance",
-    "country": "other",
-    "poster": "/posters/24.jpg",
-    "embed": "/movies/Хананы_цаана.mp4"
-  },
-  {
-    "id": "m_mys_04",
-    "title": "Сексийн донтон",
-    "year": 2013,
-    "rating": 6.8,
-    "cat": "mystery,romance",
-    "country": "other",
-    "poster": "/posters/25.jpg",
-    "embed": "/movies/Сексийн_донтон.mp4"
-  },
-  {
-    "id": "m_mys_05",
-    "title": "Нууц",
-    "year": 2000,
-    "rating": 7.0,
-    "cat": "mystery,romance",
-    "country": "korean",
-    "poster": "/posters/11.jpg",
-    "embed": "/movies/Нууц.mp4"
-  },
-  {
-    "id": "m_mys_06",
-    "title": "залуу охин",
-    "year": 2012,
-    "rating": 7.4,
-    "cat": "mystery,romance",
-    "country": "korean",
-    "poster": "/posters/33.jpg",
-    "embed": "/movies/залуу_охин.mp4"
-  },
-  {
-    "id": "m_mys_07",
-    "title": "Сайхан гэр",
-    "year": 2012,
-    "rating": 6.1,
-    "cat": "mystery,romance",
-    "country": "korean",
-    "poster": "/posters/38.jpg",
-    "embed": "/movies/Сайхан_гэр.mp4"
-  },
-  {
-    "id": "m_mys_08",
-    "title": "Миний боол болооч",
-    "year": 2012,
-    "rating": 6.0,
-    "cat": "mystery,romance",
-    "country": "other",
-    "poster": "/posters/19.jpg",
-    "embed": "/movies/Миний_боол_болооч.mp4"
-  },
-  {
-    "id": "m_mys_09",
-    "title": "Мунаг эрийн түүх",
-    "year": 2015,
-    "rating": 6.2,
-    "cat": "mystery,romance",
-    "country": "other",
-    "poster": "/posters/18.jpg",
-    "embed": "/movies/Мунаг_эрийн_түүх.mp4"
-  },
-  {
-    "id": "m_mys_10",
-    "title": "Надад туслаач, Эрос",
-    "year": 2007,
-    "rating": 6.7,
-    "cat": "mystery,romance",
-    "country": "other",
-    "poster": "/posters/16.jpg",
-    "embed": "/movies/Надад_туслаач,_Эрос.mp4"
   }
 ]
