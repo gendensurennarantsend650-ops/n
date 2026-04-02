@@ -1,0 +1,13 @@
+[
+  {
+    "type": "movie",
+    "title": "Inception",
+    "mongolian_title": "Эхлэл",
+    "year": 2010,
+    "ratings": { "imdb": "8.8" },
+    "poster_link": "https://image.tmdb.org/t/p/w500/5.jpg",
+    "genre": ["sci-fi"],
+    "country": "other",
+    "embed_links": ["https://stream.example.com/scifi1"]
+  }
+]
