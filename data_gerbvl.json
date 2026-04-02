@@ -1,13 +1,42 @@
 [
   {
-    "type": "movie",
-    "title": "Home Alone",
-    "mongolian_title": "Гэртээ ганцаараа",
-    "year": 1990,
-    "ratings": { "imdb": "7.7" },
-    "poster_link": "https://image.tmdb.org/t/p/w500/11.jpg",
-    "genre": ["family"],
+    "id": "m_fam_01",
+    "title": "Ээжийн найз",
+    "year": 2014,
+    "rating": 6.4,
+    "cat": "family,romance",
+    "country": "korean",
+    "poster": "/posters/23.jpg",
+    "embed": "/movies/Ээжийн_найз.mp4"
+  },
+  {
+    "id": "m_fam_02",
+    "title": "Гэр бүлийн халуухан нууц",
+    "year": 2021,
+    "rating": 6.7,
+    "cat": "family,mystery",
+    "country": "korean",
+    "poster": "/posters/29.jpg",
+    "embed": "/movies/Гэр_бүлийн_халуухан_нууц.mp4"
+  },
+  {
+    "id": "m_fam_03",
+    "title": "Бээжинд төөрсөн нь",
+    "year": 2007,
+    "rating": 7.0,
+    "cat": "family,mystery",
     "country": "other",
-    "embed_links": ["https://stream.example.com/family1"]
+    "poster": "/posters/22.jpg",
+    "embed": "/movies/Бээжинд_төөрсөн_нь.mp4"
+  },
+  {
+    "id": "m_fam_04",
+    "title": "Төгс хос",
+    "year": 2011,
+    "rating": 6.9,
+    "cat": "family,comedy",
+    "country": "korean",
+    "poster": "/posters/15.jpg",
+    "embed": "/movies/Төгс_хос.mp4"
   }
 ]
