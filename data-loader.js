@@ -1,4 +1,4 @@
-// data-loader.js — data.json татах, MOVIES/SERIES бэлдэх
+// data-loader.js — Олон JSON файлаас өгөгдөл татах
 import { fillRow } from './utils.js';
 
 function decodeLink(link) {
@@ -17,39 +17,52 @@ export async function loadData() {
     window.MOVIES = [];
     window.SERIES = [];
 
-    const res  = await fetch('data.json?t=' + new Date().getTime(), { cache: 'no-store' });
-    const json = await res.json();
-    const raw  = json.data || json;
+    // Энд өөрийн бүх JSON файлын нэрсийг бичнэ
+    const files = [
+      'data_horror.json',
+      'data_drama.json',
+      'data_action.json',
+      'data_comedy.json'
+    ];
 
-    raw.forEach((item, i) => {
-      const isSeries = item.type?.toLowerCase().includes('series');
-      const base = {
-        id:       (isSeries ? 's' : 'm') + i,
-        title:    item.mongolian_title || item.title,
-        title_en: item.title,
-        year:     item.year || window.FALLBACK_YEAR || 2024,
-        rating:   item.ratings?.imdb ? parseFloat(item.ratings.imdb) : (window.FALLBACK_RATING || 7.0),
-        poster:   (item.poster_link || '').replace(
-          /http(s)?:\/\/www\.themoviedb\.org\/t\/p\/(original|w500)\//g,
-          'https://image.tmdb.org/t/p/w500/'
-        ),
-        cat: (
-          Array.isArray(item.genre)
-            ? item.genre.join(',')
-            : item.genre || ''
-        ).toLowerCase(),
-        country: (item.country || 'other').toLowerCase(),
-      };
+    let globalIndex = 0; // ID давхцахаас сэргийлэх
 
-      if (isSeries) {
-        const decodedEpisodes = (item.episodes || []).map(ep => ({
-          ...ep,
-          embed_links: ep.embed_links ? [decodeLink(ep.embed_links[0])] : []
-        }));
-        window.SERIES.push({ ...base, episodes: decodedEpisodes });
-      } else {
-        window.MOVIES.push({ ...base, embed: decodeLink(item.embed_links?.[0]) });
-      }
+    // Бүх файлыг зэрэг татах
+    const responses = await Promise.all(files.map(file => 
+      fetch(file + '?t=' + new Date().getTime()).then(res => res.json()).catch(e => [])
+    ));
+
+    // Бүх өгөгдлийг нэгтгэж боловсруулах
+    responses.forEach(json => {
+      const raw = json.data || json;
+      if (!Array.isArray(raw)) return;
+
+      raw.forEach((item) => {
+        const isSeries = item.type?.toLowerCase().includes('series');
+        const base = {
+          id: (isSeries ? 's' : 'm') + globalIndex++, // Давхцахгүй ID
+          title: item.mongolian_title || item.title,
+          title_en: item.title,
+          year: item.year || window.FALLBACK_YEAR || 2024,
+          rating: item.ratings?.imdb ? parseFloat(item.ratings.imdb) : (window.FALLBACK_RATING || 7.0),
+          poster: (item.poster_link || '').replace(
+            /http(s)?:\/\/www\.themoviedb\.org\/t\/p\/(original|w500)\//g,
+            'https://image.tmdb.org/t/p/w500/'
+          ),
+          cat: (Array.isArray(item.genre) ? item.genre.join(',') : item.genre || '').toLowerCase(),
+          country: (item.country || 'other').toLowerCase(),
+        };
+
+        if (isSeries) {
+          const decodedEpisodes = (item.episodes || []).map(ep => ({
+            ...ep,
+            embed_links: ep.embed_links ? [decodeLink(ep.embed_links[0])] : []
+          }));
+          window.SERIES.push({ ...base, episodes: decodedEpisodes });
+        } else {
+          window.MOVIES.push({ ...base, embed: decodeLink(item.embed_links?.[0]) });
+        }
+      });
     });
 
     buildHomeRows();
@@ -61,6 +74,7 @@ export async function loadData() {
   }
 }
 
+// buildHomeRows функц хэвээрээ үлдэнэ...
 function buildHomeRows() {
   fillRow('rowFeatured', window.MOVIES.slice(0, 30));
   fillRow('rowSeries',   window.SERIES.slice(0, 20), true);
