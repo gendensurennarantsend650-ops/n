@@ -1,0 +1,13 @@
+[
+  {
+    "type": "movie",
+    "title": "The Hangover",
+    "mongolian_title": "Шарталт",
+    "year": 2009,
+    "ratings": { "imdb": "7.7" },
+    "poster_link": "https://image.tmdb.org/t/p/w500/14.jpg",
+    "genre": ["comedy"],
+    "country": "other",
+    "embed_links": ["https://stream.example.com/comedy1"]
+  }
+]
