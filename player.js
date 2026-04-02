@@ -1,58 +1,72 @@
-// player.js
+// player.js — NABOOSHY Видео Тоглуулагч
 import './player-hls.js';
 
-// 1. Энд өөрийн Worker-ийн хаягийг оруулна
+// 1. Чиний шинэчилсэн Worker-ийн хаяг
 const WORKER_URL = "https://dark-meadow-83ae.narhantv.workers.dev";
 
-// Нэвтрэхийн өмнө дарсан кинонийг хадгалах
 window._pendingMovie = null;
 
 window.openPlayer = (m) => {
   if (!window.currentUser) {
     window._pendingMovie = m;
     window.closeM('movieModal');
-    window.openAuth('login');
-    window.toast('Үзэхийн тулд нэвтэрнэ үү 🔐');
+    if (window.openAuth) window.openAuth('login');
     return;
   }
   _playMovie(m);
 };
 
-// Жинхэнэ тоглуулах функц
 function _playMovie(m) {
   const wrap = document.getElementById('playerWrap');
   const p2p  = document.getElementById('p2pStatus');
+  if (!wrap) return;
+
   wrap.innerHTML = '';
-  window.destroyHLS();
+  if (window.destroyHLS) window.destroyHLS();
 
-  // 2. Видеоны линкийг Worker-ээр дамжуулах эсэхийг шалгах
-  let videoUrl = m.embed;
-  
-  // Хэрэв линк нь http-ээр эхлээгүй бол (энэ нь чиний R2-ын файл гэсэн үг)
-  // Worker-ийн хаягийг урд нь залгана
+  let videoUrl = m.embed || "";
+
+  // 2. R2-оос файл татах үед Worker-ийн хаягийг залгах
   if (videoUrl && !videoUrl.startsWith('http')) {
-    videoUrl = WORKER_URL + videoUrl;
+    const cleanPath = videoUrl.startsWith('/') ? videoUrl.substring(1) : videoUrl;
+    // encodeURI нь Монгол нэрийг (Кирилл) хөтөчид ойлгомжтой болгоно
+    videoUrl = WORKER_URL + "/" + encodeURI(cleanPath);
   }
 
-  if (videoUrl?.includes('.m3u8')) {
-    window.playHLS(videoUrl, wrap, p2p);
-  } else if (videoUrl) {
+  // 3. Видео тоглуулах логик
+  if (videoUrl.includes('.m3u8')) {
+    if (window.playHLS) window.playHLS(videoUrl, wrap, p2p);
+  } 
+  else if (videoUrl.toLowerCase().endsWith('.mp4') || videoUrl.includes('.mp4?')) {
     if (p2p) p2p.style.display = 'none';
-    wrap.innerHTML = `<iframe src="${videoUrl}" allowfullscreen
-      style="width:100%;height:100%;border:none;background:#000;"></iframe>`;
+    
+    // МАШ ЧУХАЛ: crossorigin="anonymous" нь CORS алдаанаас сэргийлнэ
+    wrap.innerHTML = `
+      <video 
+        src="${videoUrl}" 
+        controls 
+        autoplay 
+        crossorigin="anonymous"
+        playsinline
+        style="width:100%; height:100%; background:#000; outline:none; border-radius:8px;">
+        Таны хөтөч видео тоглуулах боломжгүй байна.
+      </video>`;
+  } 
+  else if (videoUrl) {
+    if (p2p) p2p.style.display = 'none';
+    wrap.innerHTML = `<iframe src="${videoUrl}" allowfullscreen style="width:100%; height:100%; border:none; background:#000; border-radius:8px;"></iframe>`;
   }
 
-  document.getElementById('pTitle').textContent = m.title;
+  if (document.getElementById('pTitle')) document.getElementById('pTitle').textContent = m.title;
   document.getElementById('movieModal').classList.remove('open');
   document.getElementById('playerModal').classList.add('open');
 }
 
-// Нэвтэрсний дараа шууд нээх
 window.onAfterLogin = () => {
   if (window._pendingMovie) {
     const m = window._pendingMovie;
     window._pendingMovie = null;
-    window.closeAuth();
+    if (window.closeAuth) window.closeAuth();
     setTimeout(() => _playMovie(m), 300);
   }
 };
@@ -60,11 +74,10 @@ window.onAfterLogin = () => {
 window.closeM = (id) => {
   const modal = document.getElementById(id);
   if (modal) modal.classList.remove('open');
-  if (id === 'gameModal') document.getElementById('gmFrame').src = '';
   if (id === 'playerModal') {
     const w = document.getElementById('playerWrap');
     if (w) w.innerHTML = '';
-    window.destroyHLS();
+    if (window.destroyHLS) window.destroyHLS();
   }
 };
 
