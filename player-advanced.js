@@ -23,10 +23,20 @@ window.openPlayer = (m) => {
       pipBtn.style.zIndex = '999';
       
       pipBtn.onclick = async () => {
-        if (document.pictureInPictureElement) {
-          await document.exitPictureInPicture();
-        } else {
-          await video.requestPictureInPicture();
+        try {
+          if (document.pictureInPictureElement) {
+            await document.exitPictureInPicture();
+          } else {
+            // Metadata ачаалж дуусаагүй бол хүлээх
+            if (video.readyState < 1) {
+              await new Promise(resolve =>
+                video.addEventListener('loadedmetadata', resolve, { once: true })
+              );
+            }
+            await video.requestPictureInPicture();
+          }
+        } catch (e) {
+          console.warn('PiP алдаа:', e.message);
         }
       };
       wrap.appendChild(pipBtn);
