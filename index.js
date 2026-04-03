@@ -68,10 +68,15 @@ export default {
     object.writeHttpMetadata(headers);
     headers.set("Access-Control-Allow-Origin", allowedOrigin);
     headers.set("Vary", "Origin");
-    headers.set("Accept-Ranges", "bytes"); // Видео гүйлгэхийг дэмжинэ гэдгээ зарлах
+    headers.set("Accept-Ranges", "bytes");
     headers.set("etag", object.httpEtag);
 
-    // Cache-Control (Браузерт хэр удаан хадгалахыг заах)
+    // МАШ ЧУХАЛ: Хэрэв R2 автоматаар Content-Type өгөөгүй бол хүчээр өгөх
+    if (key.toLowerCase().endsWith('.mp4') && !headers.has("Content-Type")) {
+      headers.set("Content-Type", "video/mp4");
+    }
+
+    // Cache-Control
     const isVideo  = key.match(/\.(mp4|m4v|webm|mkv|mov|ts|m3u8)$/i);
     if (isVideo) {
       headers.set("Cache-Control", "public, max-age=7200");
@@ -79,15 +84,10 @@ export default {
       headers.set("Cache-Control", "public, max-age=86400");
     }
 
-    // Хэрэв Range хүсэлт ирсэн бол 206 (Partial Content), үгүй бол 200 (OK)
-    const status = object.body ? (rangeHeader ? 206 : 200) : 304;
+    // ЗӨВХӨН R2-оос Range буцаасан үед л 206 өгнө (Браузер төөрөхөөс сэргийлнэ)
+    const status = object.range ? 206 : 200;
 
-    // 7. ШУУД ДАМЖУУЛАХ (Хамгийн чухал өөрчлөлт)
-    // TransformStream болон Cache API ашиглахгүйгээр шууд object.body-г буцаана.
-    // Энэ нь 1GB+ хэмжээтэй файлыг ямар ч санах ойн ачаалалгүйгээр дамжуулах цорын ганц зөв арга юм.
     return new Response(object.body, { 
       status, 
       headers 
     });
-  }
-};
