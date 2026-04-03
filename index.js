@@ -17,15 +17,18 @@ export default {
     const referer = request.headers.get("Referer") || "";
     const origin  = request.headers.get("Origin")  || "";
 
+    // 1. Хамгаалалт
     if (!isAllowed(referer) && !isAllowed(origin)) {
       return new Response("Хандах эрхгүй!", { status: 403 });
     }
 
+    // 2. CORS headers — зөвшөөрөгдсөн origin-г буцаана
     const allowedOrigin =
       ALLOWED_ORIGINS.find(o => origin.includes(o))
         ? origin
         : "https://nabooshy.pages.dev";
 
+    // 3. CORS preflight
     if (request.method === "OPTIONS") {
       return new Response(null, {
         headers: {
@@ -38,6 +41,7 @@ export default {
       });
     }
 
+    // 4. Монгол нэр (Кирилл) тайлах
     let key;
     try {
       key = decodeURIComponent(url.pathname.substring(1));
@@ -49,8 +53,9 @@ export default {
       return new Response("Хаяг дутуу байна", { status: 400 });
     }
 
-    const cacheKey    = new Request(url.toString(), request);
-    const cache       = caches.default;
+    // 5. Cloudflare Cache API
+    const cacheKey   = new Request(url.toString(), request);
+    const cache      = caches.default;
     const rangeHeader = request.headers.get("range");
 
     if (!rangeHeader) {
@@ -58,6 +63,7 @@ export default {
       if (cached) return cached;
     }
 
+    // 6. R2-оос файл авах
     const object = await env.MY_BUCKET.get(key, {
       range: request.headers,
     });
@@ -66,6 +72,7 @@ export default {
       return new Response("Файл олдсонгүй: " + key, { status: 404 });
     }
 
+    // 7. Хариуны header
     const headers = new Headers();
     object.writeHttpMetadata(headers);
     headers.set("Access-Control-Allow-Origin", allowedOrigin);
@@ -80,6 +87,7 @@ export default {
 
     const status = object.body ? (rangeHeader ? 206 : 200) : 304;
 
+    // 8. TransformStream streaming
     const { readable, writable } = new TransformStream();
     object.body.pipeTo(writable);
 
