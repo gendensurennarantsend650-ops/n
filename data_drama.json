@@ -1,4 +1,4 @@
 [
-  { "id": "m1", "title": "1990-ээд оны үйлдвэрийн захирлын хувь тавилан", "year": 2023, "genre": ["drama"], "poster": "https://dark-meadow-83ae.narhantv.workers.dev/posters/3.jpg", "embed": "nabooshy/movies/Ээж_ээ,_таны_нууц_илчлэгдлээ.mp4" },
-  { "id": "m38", "title": "Үйлчлүүлэгчдээ дурласан эмэгтэй", "year": 2023, "genre": ["romance"], "poster": "https://dark-meadow-83ae.narhantv.workers.dev/posters/10.jpg", "embed": "https://dark-meadow-83ae.narhantv.workers.dev/movies/Үйлчлүүлэгчдээ_дурласан_эмэгтэй.mp4" }
+  { "id": "m1", "title": "1990-ээд оны үйлдвэрийн захирлын хувь тавилан", "year": 2023, "genre": ["drama"], "poster": "https://dark-meadow-83ae.narhantv.workers.dev/posters/3.jpg", "embed": "https://dark-meadow-83ae.narhantv.workers.dev/movies/Ээж_ээ,_таны_нууц_илчлэгдлээ.mp4" },
+  { "id": "m38", "title": "Үйлчлүүлэгчдээ дурласан эмэгтэй", "year": 2023, "genre": ["romance"], "poster": "https://dark-meadow-83ae.narhantv.workers.dev/posters/10.jpg", "embed": "https://dark-meadow-83ae.narhantv.workers.dev/movies/Ээж_ээ,_таны_нууц_илчлэгдлээ.mp4" }
 ]
