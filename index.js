@@ -17,14 +17,14 @@ export default {
     const referer = request.headers.get("Referer") || "";
     const origin  = request.headers.get("Origin")  || "";
 
-    // 1. ХАМГААЛАЛТ: Зөвхөн зөвшөөрөгдсөн сайтаас хандахыг шалгах
+    // 1. ХАМГААЛАЛТ
     if (!isAllowed(referer) && !isAllowed(origin)) {
       return new Response("Хандах эрхгүй! (Access Denied)", { status: 403 });
     }
 
     const allowedOrigin = ALLOWED_ORIGINS.find(o => origin.includes(o)) ? origin : "https://nabooshy.pages.dev";
 
-    // 2. CORS PREFLIGHT: Браузерын шалгалтыг нэвтрүүлэх
+    // 2. CORS PREFLIGHT
     if (request.method === "OPTIONS") {
       return new Response(null, {
         headers: {
@@ -37,7 +37,7 @@ export default {
       });
     }
 
-    // 3. URL-аас видеоны нэрийг гаргаж авах (Монгол кирилл үсгийг тайлах)
+    // 3. URL-аас видеоны нэрийг гаргаж авах
     let key;
     try {
       key = decodeURIComponent(url.pathname.substring(1));
@@ -49,11 +49,11 @@ export default {
       return new Response("Хаяг дутуу байна", { status: 400 });
     }
 
-    // 4. RANGE REQUEST: Видеог гүйлгэж үзэхэд зориулсан тохиргоо
+    // 4. RANGE REQUEST
     const rangeHeader = request.headers.get("range");
     const r2Options = {};
     if (rangeHeader) {
-      r2Options.range = request.headers; // R2 руу Range мэдээллийг дамжуулах
+      r2Options.range = request.headers;
     }
 
     // 5. R2 BUCKET-ААС ФАЙЛ ТАТАХ
@@ -68,10 +68,15 @@ export default {
     object.writeHttpMetadata(headers);
     headers.set("Access-Control-Allow-Origin", allowedOrigin);
     headers.set("Vary", "Origin");
-    headers.set("Accept-Ranges", "bytes"); // Видео гүйлгэхийг дэмжинэ гэдгээ зарлах
+    headers.set("Accept-Ranges", "bytes");
     headers.set("etag", object.httpEtag);
 
-    // Cache-Control (Браузерт хэр удаан хадгалахыг заах)
+    // МАШ ЧУХАЛ: Content-Type хүчээр өгөх
+    if (key.toLowerCase().endsWith('.mp4') && !headers.has("Content-Type")) {
+      headers.set("Content-Type", "video/mp4");
+    }
+
+    // Cache-Control
     const isVideo  = key.match(/\.(mp4|m4v|webm|mkv|mov|ts|m3u8)$/i);
     if (isVideo) {
       headers.set("Cache-Control", "public, max-age=7200");
@@ -79,12 +84,10 @@ export default {
       headers.set("Cache-Control", "public, max-age=86400");
     }
 
-    // Хэрэв Range хүсэлт ирсэн бол 206 (Partial Content), үгүй бол 200 (OK)
-    const status = object.body ? (rangeHeader ? 206 : 200) : 304;
+    // Range хүсэлт ирсэн бол 206, үгүй бол 200
+    const status = rangeHeader ? 206 : 200;
 
-    // 7. ШУУД ДАМЖУУЛАХ (Хамгийн чухал өөрчлөлт)
-    // TransformStream болон Cache API ашиглахгүйгээр шууд object.body-г буцаана.
-    // Энэ нь 1GB+ хэмжээтэй файлыг ямар ч санах ойн ачаалалгүйгээр дамжуулах цорын ганц зөв арга юм.
+    // 7. ШУУД ДАМЖУУЛАХ
     return new Response(object.body, { 
       status, 
       headers 
