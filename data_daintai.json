@@ -4,10 +4,16 @@
     "title": "Saving Private Ryan",
     "mongolian_title": "Цэрэг Райныг аврах нь",
     "year": 1998,
-    "ratings": { "imdb": "8.6" },
+    "ratings": {
+      "imdb": "8.6"
+    },
     "poster_link": "https://image.tmdb.org/t/p/w500/12.jpg",
-    "genre": ["war"],
+    "genre": [
+      "war"
+    ],
     "country": "other",
-    "embed_links": ["https://stream.example.com/war1"]
+    "embed_links": [
+      "https://stream.example.com/war1"
+    ]
   }
 ]

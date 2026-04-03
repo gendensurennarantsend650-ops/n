@@ -4,11 +4,17 @@
     "title": "The Hangover",
     "mongolian_title": "Шарталт",
     "year": 2009,
-    "ratings": { "imdb": "7.7" },
+    "ratings": {
+      "imdb": "7.7"
+    },
     "poster_link": "https://image.tmdb.org/t/p/w500/14.jpg",
-    "genre": ["comedy"],
+    "genre": [
+      "comedy"
+    ],
     "country": "other",
-    "embed_links": ["https://stream.example.com/comedy1"]
+    "embed_links": [
+      "https://stream.example.com/comedy1"
+    ]
   },
   {
     "id": "co1",
@@ -17,9 +23,28 @@
     "ratings": {
       "imdb": "7.0"
     },
-    "genre": ["comedy"],
+    "genre": [
+      "comedy"
+    ],
     "country": "korean",
     "poster": "/posters/34.jpg",
     "embed": "/movies/Секс_бол_юу_ч_биш.mp4"
+  },
+  {
+    "id": "new7",
+    "title": "Гуйлгачин нөхөр",
+    "mongolian_title": "Гуйлгачин нөхөр",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "comedy",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/9.jpg",
+    "embed": "/movies/Гуйлгачин_нөхөр.mp4"
   }
 ]

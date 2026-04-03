@@ -6,7 +6,9 @@
     "ratings": {
       "imdb": "6.5"
     },
-    "genre": ["horror"],
+    "genre": [
+      "horror"
+    ],
     "country": "other",
     "poster": "/posters/2.jpg",
     "embed": "/movies/Хараал_тайлагч.mp4"
