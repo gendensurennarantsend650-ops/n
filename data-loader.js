@@ -1,28 +1,37 @@
 // data-loader.js — Олон JSON файлаас өгөгдөл татах + Worker холболт
 import { fillRow } from './utils.js';
 
-// 1. Чиний Worker-ийн хаяг (Зургийг эндээс татна)
+// 1. Таны Worker-ийн үндсэн хаяг
 const WORKER_URL = "https://dark-meadow-83ae.narhantv.workers.dev";
 
+// Линкийг тайлж унших туслах функц
 function decodeLink(link) {
   if (!link) return '';
   if (link.startsWith('http')) return link;
-  try { return atob(link); } catch (e) { return link; }
+  try { 
+    // Хэрэв линк base64-өөр кодлогдсон бол тайлна, үгүй бол хэвээр нь үлдээнэ
+    return atob(link); 
+  } catch (e) { 
+    return link; 
+  }
 }
 
 export async function loadData() {
   try {
+    // Гарчиг болон холбоо барих мэдээлэл шинэчлэх
     const titleEl = document.getElementById('appTitle');
     const phoneEl = document.getElementById('contactPhoneEl');
-    if (titleEl) titleEl.textContent = `Nabooshy - ${window.CURRENT_YEAR || 2026} Оны Ухаалаг Платформ`;
+    if (titleEl) titleEl.textContent = `Nabooshy - ${window.CURRENT_YEAR || 2026}`;
     if (phoneEl) phoneEl.textContent = window.CONTACT_PHONE || '9937-6238';
 
+    // Глобал жагсаалтуудыг цэвэрлэх
     window.MOVIES = [];
     window.SERIES = [];
 
+    // Унших файлуудын жагсаалт
     const files = [
-      'data_horror.json', 'data_drama.json', 'data_tsuwral.json',
-      'data_action.json', 'data_adal.json', 'data_tvvhen.json',
+      'data_drama.json', 'data_action.json', 'data_tsuwral.json',
+      'data_horror.json', 'data_adal.json', 'data_tvvhen.json',
       'data_aimshig.json', 'data_trailer.json', 'data_zognol.json',
       'data_hvvhed.json', 'data_gemt.json', 'data_hair.json',
       'data_nuutslag.json', 'data_barimt.json', 'data_gerbvl.json',
@@ -31,8 +40,11 @@ export async function loadData() {
 
     let globalIndex = 0;
 
+    // Бүх JSON файлыг зэрэг татаж авах
     const responses = await Promise.all(files.map(file => 
-      fetch(file + '?t=' + new Date().getTime()).then(res => res.json()).catch(e => [])
+      fetch(file + '?t=' + new Date().getTime())
+        .then(res => res.json())
+        .catch(() => []) // Файл байхгүй эсвэл алдаа гарвал хоосон жагсаалт буцаана
     ));
 
     responses.forEach(json => {
@@ -42,28 +54,24 @@ export async function loadData() {
       raw.forEach((item) => {
         const isSeries = item.type?.toLowerCase().includes('series');
 
-        // --- ПОСТЕР ХОЛБОЛТ (Worker-тэй холбох) ---
+        // --- 🖼️ ПОСТЕР (ЗУРАГ) ХОЛБОЛТ ---
         let pLink = item.poster_link || item.poster || '';
         if (pLink && !pLink.startsWith('http')) {
-          // Хэрэв линк / -ээр эхлээгүй бол нэмж өгнө
+          // Хэрэв линк /posters/3.jpg гэж байвал Worker-ийн хаягийг урд нь залгана
           const cleanPath = pLink.startsWith('/') ? pLink : '/' + pLink;
           pLink = WORKER_URL + cleanPath;
-        } else {
-          // TMDB-ийн зургийг засах хуучин логик
-          pLink = pLink.replace(/http(s)?:\/\/www\.themoviedb\.org\/t\/p\/(original|w500)\//g, 'https://image.tmdb.org/t/p/w500/');
         }
 
-        // --- ҮНЭЛГЭЭ (Ratings) ---
+        // --- ⭐ ҮНЭЛГЭЭ ---
         let movieRating = window.FALLBACK_RATING || 7.0;
         if (item.ratings?.imdb) movieRating = parseFloat(item.ratings.imdb);
         else if (item.rating) movieRating = parseFloat(item.rating);
 
-        // --- ТӨРӨЛ (Genre/Cat) ---
+        // --- 📂 ТӨРӨЛ (Genre) ---
         let category = '';
         if (Array.isArray(item.genre)) category = item.genre.join(',');
         else if (item.genre) category = item.genre;
-        else if (item.cat) category = item.cat;
-
+        
         const base = {
           id: (isSeries ? 's' : 'm') + globalIndex++,
           title: item.mongolian_title || item.title,
@@ -72,33 +80,42 @@ export async function loadData() {
           rating: movieRating,
           poster: pLink,
           cat: category.toLowerCase(),
-          country: (item.country || 'other').toLowerCase(),
+          country: (item.country || 'mn').toLowerCase(),
         };
 
         if (isSeries) {
-          const decodedEpisodes = (item.episodes || []).map(ep => ({
-            ...ep,
-            embed_links: ep.embed_links ? [decodeLink(ep.embed_links[0])] : []
-          }));
+          // Цуврал киноны ангиудын линкийг засах
+          const decodedEpisodes = (item.episodes || []).map(ep => {
+            let epLink = ep.embed_links ? ep.embed_links[0] : '';
+            if (epLink && !epLink.startsWith('http')) {
+                epLink = WORKER_URL + (epLink.startsWith('/') ? epLink : '/' + epLink);
+            }
+            return { ...ep, embed_links: [decodeLink(epLink)] };
+          });
           window.SERIES.push({ ...base, episodes: decodedEpisodes });
         } else {
-          // Embed линкийг 'embed_links' эсвэл 'embed' талбараас авах
-          const eLink = (item.embed_links && item.embed_links[0]) || item.embed || '';
+          // --- 🎬 КИНОНЫ ВИДЕО ЛИНК ---
+          let eLink = (item.embed_links && item.embed_links[0]) || item.embed || '';
+          if (eLink && !eLink.startsWith('http')) {
+            // Хэрэв линк /movies/test.mp4 гэж байвал Worker-ийн хаягийг залгана
+            const cleanPath = eLink.startsWith('/') ? eLink : '/' + eLink;
+            eLink = WORKER_URL + cleanPath;
+          }
           window.MOVIES.push({ ...base, embed: decodeLink(eLink) });
         }
       });
     });
 
+    // Дэлгэцэнд эгнээгээр харуулах
     buildHomeRows();
-    if (window.fetchTMDBNowPlaying) window.fetchTMDBNowPlaying();
 
   } catch (e) {
-    window.toast('Өгөгдөл татахад алдаа!');
-    console.error(e);
+    console.error("Өгөгдөл ачаалахад алдаа гарлаа:", e);
   }
 }
 
 function buildHomeRows() {
+  // Нүүр хуудасны онцлох хэсэг
   fillRow('rowFeatured', window.MOVIES.slice(0, 30));
   fillRow('rowSeries',   window.SERIES.slice(0, 20), true);
 
@@ -106,6 +123,7 @@ function buildHomeRows() {
   if (dc && window.HOME_ROWS) {
     dc.innerHTML = '';
     window.HOME_ROWS.forEach(({ id, title, keys }) => {
+      // Төрлөөр нь шүүж харуулах
       const items = window.MOVIES.filter(m => keys.some(k => m.cat.includes(k))).slice(0, 25);
       if (items.length > 0) {
         const sec = document.createElement('section');
@@ -122,7 +140,4 @@ function buildHomeRows() {
       }
     });
   }
-
-  if (window.buildGamesRow) window.buildGamesRow();
-  setTimeout(() => { if (window.insertAds) window.insertAds(); }, 500);
 }
