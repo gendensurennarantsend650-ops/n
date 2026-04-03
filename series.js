@@ -32,12 +32,8 @@ window.openSeriesDetail = function (s) {
       <div class="ep-num">${i + 1}</div>
       <div class="ep-label">${ep.episode_title || 'Анги'}</div>`;
     
-    // АНГИ ДЭЭР ДАРАХАД:
     el.onclick = () => {
-      // 1. Цувралын цонхыг хаах
       window.closeM('seriesModal'); 
-      
-      // 2. Тоглуулагчийг нээх
       setTimeout(() => {
         window.openPlayer({
           title: `${s.title} — ${i + 1}-р анги`,
@@ -53,15 +49,17 @@ window.openSeriesDetail = function (s) {
   document.getElementById('seriesModal').classList.add('open');
 };
 
-// --- Цуврал хуудас бүтээх ---
-let seriesBuilt = false;
-
+// ✅ ЗАСВАР 3: seriesBuilt флагийг устгаж, өгөгдөл бэлэн байгааг шалгав
 export function buildSeriesPage() {
-  if (seriesBuilt) return;
-  seriesBuilt = true;
-
   const bar = document.getElementById('seriesGenreBar');
   if (!bar) return;
+
+  // Өгөгдөл байхгүй бол хүлээ
+  if (!window.SERIES || window.SERIES.length === 0) {
+    setTimeout(() => buildSeriesPage(), 500);
+    return;
+  }
+
   bar.innerHTML = '';
 
   SERIES_GENRES.forEach((g, i) => {
