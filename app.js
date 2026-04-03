@@ -2,6 +2,7 @@
 import './firebase-config.js';
 import './auth.js';
 import './player.js';
+import './player-advanced.js';   // ✅ ЗАСВАР 1: PiP + Ambient горим идэвхжүүлэв
 import './config.js';
 import './weather.js';
 import './games.js';
@@ -46,23 +47,14 @@ window.gotoPage = function (p) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
   if (window.setPageHero)  window.setPageHero(p);
-  if (p === 'games'   && window.buildGamesPage) window.buildGamesPage();
-  if (p === 'weather' && window.loadWeather)    window.loadWeather();
+  if (p === 'games'   && window.buildGamesPage)  window.buildGamesPage();
+  if (p === 'movies'  && window.buildMoviesPage) window.buildMoviesPage();  // ✅ ЗАСВАР 2: Movies хуудас дуудав
+  if (p === 'weather' && window.loadWeather)     window.loadWeather();
   if (p === 'search') setTimeout(() => document.getElementById('searchPageInput')?.focus(), 300);
 };
 
 loadData();
 
-// ── 🛡️ Хамгаалалт (Түр зуур идэвхгүй болгов) ─────────────
-/* 
-document.addEventListener('contextmenu', e => e.preventDefault());
-document.onkeydown = function (e) {
-  if (e.keyCode === 123)                                return false; // F12
-  if (e.ctrlKey && e.shiftKey && e.keyCode === 73)     return false; // Ctrl+Shift+I
-  if (e.ctrlKey && e.shiftKey && e.keyCode === 67)     return false; // Ctrl+Shift+C
-  if (e.ctrlKey && e.shiftKey && e.keyCode === 74)     return false; // Ctrl+Shift+J
-  if (e.ctrlKey && e.keyCode === 85)                   return false; // Ctrl+U
-};
-*/
+// ── 🛡️ Хамгаалалт ─────────────────────────────────────────
 console.log('%cЗОГС!', 'color: red; font-size: 50px; font-weight: bold;');
 console.log('%cЭнэ сайтын кодыг хуулахыг хориглоно.', 'font-size: 18px;');
