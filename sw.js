@@ -1,72 +1,65 @@
-// ============================================================
-// sw.js — Nabooshy Service Worker (2026 Speed Stack)
-// Стратеги: Cache First (статик) + Network First (мэдээлэл)
-// ============================================================
+// --- START OF FILE sw.js ---
 
-const CACHE_STATIC = 'nabooshy-static-v2';
-const CACHE_DATA   = 'nabooshy-data-v2';
-
-const APP_SHELL = [
-  '/', '/index.html',
-  '/style.css', '/base.css', '/nave.css', '/hero.css', '/cards.css',
-  '/modals.css', '/pages.css',
-  '/app.js', '/zar.js', '/data.json', '/manifest.json'
+const CACHE_NAME = 'nabooshy-v1';
+const ASSETS_TO_CACHE = [
+  '/',
+  '/index.html',
+  '/style.css',
+  '/app.js',
+  '/config.js',
+  '/manifest.json',
+  '/pwa-init.js'
 ];
 
+// 1. СУУЛГАХ (Install): Статик файлуудыг кэшлэх
 self.addEventListener('install', event => {
-  self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE_STATIC).then(cache => cache.addAll(APP_SHELL))
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(ASSETS_TO_CACHE);
+    })
   );
+  self.skipWaiting();
 });
 
+// 2. ИДЭВХЖҮҮЛЭХ (Activate): Хуучин кэшийг цэвэрлэх
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE_STATIC && k !== CACHE_DATA).map(k => caches.delete(k)))
-    ).then(() => self.clients.claim())
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+  self.clients.claim();
+});
+
+// 3. ХҮСЭЛТ БАРИХ (Fetch): МАШ ЧУХАЛ ХЭСЭГ
+self.addEventListener('fetch', event => {
+  const url = new URL(event.request.url);
+
+  // ── ВИДЕО БОЛОН ПОСТЕРЫГ АЛГАСАХ (BYPASS) ──
+  // Хэрэв хүсэлт /movies/ эсвэл /posters/ хавтас руу байвал 
+  // Service Worker огт оролцохгүй, шууд сүлжээнээс (Network) авна.
+  // Энэ нь 500 алдаа болон видео гацалтыг засна.
+  if (url.pathname.startsWith('/movies/') || url.pathname.startsWith('/posters/')) {
+    return; // Энд return хийснээр хөтөч өөрөө видеог хэвийн тоглуулна.
+  }
+
+  // Бусад статик файлуудыг (HTML, CSS, JS) кэшээс хайх, байхгүй бол сүлжээнээс авах
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request).catch(() => {
+        // Хэрэв интернетгүй үед кэшэд байхгүй файл дуудвал index.html-ийг харуулж болно
+        if (event.request.mode === 'navigate') {
+          return caches.match('/index.html');
+        }
+      });
+    })
   );
 });
 
-self.addEventListener('fetch', event => {
-  const { request } = event;
-  const url = new URL(request.url);
-
-  if (url.pathname.startsWith('/api/') || request.method !== 'GET') return;
-  if (url.hostname.includes('youtube') || url.hostname.includes('google')) return;
-
-  // TMDB зураг: Cache First
-  if (url.hostname.includes('image.tmdb.org')) {
-    event.respondWith(
-      caches.open(CACHE_DATA).then(cache =>
-        cache.match(request).then(cached => {
-          if (cached) return cached;
-          return fetch(request).then(res => {
-            if (res.ok) cache.put(request, res.clone());
-            return res;
-          });
-        })
-      )
-    );
-    return;
-  }
-
-  // Статик файл: Cache First
-  if (request.destination === 'style' || request.destination === 'script') {
-    event.respondWith(caches.match(request).then(cached => cached || fetch(request)));
-    return;
-  }
-
-  // HTML: Network First
-  if (request.destination === 'document') {
-    event.respondWith(
-      fetch(request).then(res => {
-        caches.open(CACHE_STATIC).then(c => c.put(request, res.clone()));
-        return res;
-      }).catch(() => caches.match(request))
-    );
-    return;
-  }
-
-  event.respondWith(caches.match(request).then(cached => cached || fetch(request)));
-});
+// --- END OF FILE sw.js ---
