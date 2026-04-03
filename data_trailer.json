@@ -4,10 +4,16 @@
     "title": "Coming Soon Trailer",
     "mongolian_title": "Тун удахгүй",
     "year": 2026,
-    "ratings": { "imdb": "7.0" },
+    "ratings": {
+      "imdb": "7.0"
+    },
     "poster_link": "https://image.tmdb.org/t/p/w500/4.jpg",
-    "genre": ["trailer"],
+    "genre": [
+      "trailer"
+    ],
     "country": "other",
-    "embed_links": ["https://stream.example.com/trailer1"]
+    "embed_links": [
+      "https://stream.example.com/trailer1"
+    ]
   }
 ]

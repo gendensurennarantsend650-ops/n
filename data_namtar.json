@@ -4,10 +4,16 @@
     "title": "The Social Network",
     "mongolian_title": "Нийгмийн сүлжээ",
     "year": 2010,
-    "ratings": { "imdb": "7.8" },
+    "ratings": {
+      "imdb": "7.8"
+    },
     "poster_link": "https://image.tmdb.org/t/p/w500/13.jpg",
-    "genre": ["biography"],
+    "genre": [
+      "biography"
+    ],
     "country": "other",
-    "embed_links": ["https://stream.example.com/bio1"]
+    "embed_links": [
+      "https://stream.example.com/bio1"
+    ]
   }
 ]

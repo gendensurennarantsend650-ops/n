@@ -4,34 +4,835 @@
     "title": "Галзуу агент",
     "mongolian_title": "Галзуу агент",
     "year": 2024,
-    "ratings": { "imdb": "7.5" },
-    "poster_link": "https://cdn.example.com/posters/galzuu-agent.jpg",
-    "genre": ["action", "thriller"],
+    "ratings": {
+      "imdb": "7.5"
+    },
+    "genre": [
+      "action",
+      "thriller"
+    ],
     "country": "korean",
-    "embed_links": ["https://stream.example.com/embed/galzuu-agent"]
+    "embed": "/movies/Галзуу_агент.mp4"
   },
   {
     "type": "movie",
     "title": "The Taste of Money",
     "mongolian_title": "Мөнгөний амт",
     "year": 2012,
-    "ratings": { "imdb": "6.8" },
-    "poster_link": "https://cdn.example.com/posters/taste-of-money.jpg",
-    "genre": ["drama", "romance"],
+    "ratings": {
+      "imdb": "6.8"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
     "country": "korean",
-    "embed_links": ["https://stream.example.com/embed/taste-of-money"]
+    "embed": "/movies/Мөнгөний_амт.mp4"
   },
   {
     "type": "series",
     "title": "Real Bot",
     "mongolian_title": "Үйлчлэгч андроид",
     "year": 2017,
-    "ratings": { "imdb": "6.2" },
-    "poster_link": "https://cdn.example.com/posters/real-bot.jpg",
-    "genre": ["sci-fi", "drama"],
+    "ratings": {
+      "imdb": "6.2"
+    },
+    "genre": [
+      "sci-fi",
+      "drama"
+    ],
     "country": "korean",
     "episodes": [
-      { "episode_number": 1, "title": "Эхлэл", "embed_links": ["https://stream.example.com/ep1"] }
-    ]
+      {
+        "episode_number": 1,
+        "title": "Эхлэл",
+        "embed_links": [
+          "https://stream.example.com/ep1"
+        ]
+      }
+    ],
+    "poster": "/posters/2.png"
+  },
+  {
+    "id": "new1",
+    "title": "1990-ээд оны үйлдвэрийн захирлын хувь тавилан",
+    "mongolian_title": "1990-ээд оны үйлдвэрийн захирлын хувь тавилан",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/3.jpg",
+    "embed": "/movies/1990-ээд_оны_үйлдвэрийн_захирлын_хувь_тавилан.mp4"
+  },
+  {
+    "id": "new4",
+    "title": "Асарч амжаагүй аав минь",
+    "mongolian_title": "Асарч амжаагүй аав минь",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "family"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/6.jpg",
+    "embed": "/movies/Асарч_амжаагүй_аав_минь.mp4"
+  },
+  {
+    "id": "new5",
+    "title": "Баян айлын хатагтай нэлээн ширүүн",
+    "mongolian_title": "Баян айлын хатагтай нэлээн ширүүн",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/7.jpg",
+    "embed": "/movies/Баян_айлын_хатагтай_нэлээн_ширүүн.mp4"
+  },
+  {
+    "id": "new6",
+    "title": "Бүсгүйг булаах төлөвлөгөө",
+    "mongolian_title": "Бүсгүйг булаах төлөвлөгөө",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/8.jpg",
+    "embed": "/movies/Бүсгүйг_булаах_төлөвлөгөө.mp4"
+  },
+  {
+    "id": "new8",
+    "title": "Гурван сар үлдсэн Гу бүсгүй хүлээсээ тайллаа",
+    "mongolian_title": "Гурван сар үлдсэн Гу бүсгүй хүлээсээ тайллаа",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/10.jpg",
+    "embed": "/movies/Гурван_сар_үлдсэн_Гу_бүсгүй_хүлээсээ_тайллаа.mp4"
+  },
+  {
+    "id": "new9",
+    "title": "Гэнэт өөрчлөгдсөн нөхөр",
+    "mongolian_title": "Гэнэт өөрчлөгдсөн нөхөр",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/11.jpg",
+    "embed": "/movies/Гэнэт_өөрчлөгдсөн_нөхөр.mp4"
+  },
+  {
+    "id": "new10",
+    "title": "Гэнэтийн ослоос хэлгүй болсон охины түүх",
+    "mongolian_title": "Гэнэтийн ослоос хэлгүй болсон охины түүх",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/12.jpg",
+    "embed": "/movies/Гэнэтийн_ослоос_хэлгүй_болсон_охины_түүх.mp4"
+  },
+  {
+    "id": "new11",
+    "title": "Гэр бүлийнхэн минь миний дотоод бодлыг сонсчихлоо",
+    "mongolian_title": "Гэр бүлийнхэн минь миний дотоод бодлыг сонсчихлоо",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "family"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/13.jpg",
+    "embed": "/movies/Гэр_бүлийнхэн_минь_миний_дотоод_бодлыг_сонсчихлоо.mp4"
+  },
+  {
+    "id": "new14",
+    "title": "Дахин төрсөн хатан эх",
+    "mongolian_title": "Дахин төрсөн хатан эх",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/16.jpg",
+    "embed": "/movies/Дахин_төрсөн_хатан_эх.mp4"
+  },
+  {
+    "id": "new15",
+    "title": "Дахин төрсөн эмэгтэйн өшөө авалт",
+    "mongolian_title": "Дахин төрсөн эмэгтэйн өшөө авалт",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/17.jpg",
+    "embed": "/movies/Дахин_төрсөн_эмэгтэйн_өшөө_авалт.mp4"
+  },
+  {
+    "id": "new17",
+    "title": "Дуудлагын жолооч охин",
+    "mongolian_title": "Дуудлагын жолооч охин",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/19.jpg",
+    "embed": "/movies/Дуудлагын_жолооч_охин.mp4"
+  },
+  {
+    "id": "new18",
+    "title": "Дээд зиндаанд хүрэх төлөвлөгөө",
+    "mongolian_title": "Дээд зиндаанд хүрэх төлөвлөгөө",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/20.jpg",
+    "embed": "/movies/Дээд_зиндаанд_хүрэх_төлөвлөгөө.mp4"
+  },
+  {
+    "id": "new21",
+    "title": "Дөрвөн хүүхдийн хойд эх болоод сэрлээ",
+    "mongolian_title": "Дөрвөн хүүхдийн хойд эх болоод сэрлээ",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "family"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/23.jpg",
+    "embed": "/movies/Дөрвөн_хүүхдийн_хойд_эх_болоод_сэрлээ.mp4"
+  },
+  {
+    "id": "new22",
+    "title": "Е ноёны авсан зальтай охин",
+    "mongolian_title": "Е ноёны авсан зальтай охин",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/24.jpg",
+    "embed": "/movies/Е_ноёны_авсан_зальтай_охин.mp4"
+  },
+  {
+    "id": "new24",
+    "title": "Зэрлэг салхи сарнайг үнсэнэ",
+    "mongolian_title": "Зэрлэг салхи сарнайг үнсэнэ",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/26.jpg",
+    "embed": "/movies/Зэрлэг_салхи_сарнайг_үнсэнэ.mp4"
+  },
+  {
+    "id": "new25",
+    "title": "Зөн билэгт эхнэр нөхөртөө үнсүүлэхийг хүснэ",
+    "mongolian_title": "Зөн билэгт эхнэр нөхөртөө үнсүүлэхийг хүснэ",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/27.jpg",
+    "embed": "/movies/Зөн_билэгт_эхнэр_нөхөртөө_үнсүүлэхийг_хүснэ.mp4"
+  },
+  {
+    "id": "new28",
+    "title": "Намайг халсны дараа компани минь дампуурсан",
+    "mongolian_title": "Намайг халсны дараа компани минь дампуурсан",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/30.jpg",
+    "embed": "/movies/Намайг_халсны_дараа_компани_минь_дампуурсан.mp4"
+  },
+  {
+    "id": "new35",
+    "title": "Салалтын дараах шинэ амьдрал",
+    "mongolian_title": "Салалтын дараах шинэ амьдрал",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/37.png",
+    "embed": "/movies/Салалтын_дараах_шинэ_амьдрал.mp4"
+  },
+  {
+    "id": "new36",
+    "title": "Санаандгүй захирал бүсггүйг аварлаа",
+    "mongolian_title": "Санаандгүй захирал бүсггүйг аварлаа",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/38.jpg",
+    "embed": "/movies/Санаандгүй_захирал_бүсггүйг_аварлаа.mp4"
+  },
+  {
+    "id": "new37",
+    "title": "Саятан гэр бүлийн бэр болсон нь",
+    "mongolian_title": "Саятан гэр бүлийн бэр болсон нь",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/2.png",
+    "embed": "/movies/Саятан_гэр_бүлийн_бэр_болсон_нь.mp4"
+  },
+  {
+    "id": "new39",
+    "title": "Тосгоны бурхан",
+    "mongolian_title": "Тосгоны бурхан",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/4.jpg",
+    "embed": "/movies/Тосгоны_бурхан.mp4"
+  },
+  {
+    "id": "new41",
+    "title": "Тэр минь өглөөний нар мэт мандав",
+    "mongolian_title": "Тэр минь өглөөний нар мэт мандав",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/6.jpg",
+    "embed": "/movies/Тэр_минь_өглөөний_нар_мэт_мандав.mp4"
+  },
+  {
+    "id": "new42",
+    "title": "Тэр эмэгтэй явсны дараа тэр залуу галзуурсан",
+    "mongolian_title": "Тэр эмэгтэй явсны дараа тэр залуу галзуурсан",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/7.jpg",
+    "embed": "/movies/Тэр_эмэгтэй_явсны_дараа_тэр_залуу_галзуурсан.mp4"
+  },
+  {
+    "id": "new43",
+    "title": "Тэрбумтан цэвэрлэгч эргэн ирлээ",
+    "mongolian_title": "Тэрбумтан цэвэрлэгч эргэн ирлээ",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/8.jpg",
+    "embed": "/movies/Тэрбумтан_цэвэрлэгч_эргэн_ирлээ.mp4"
+  },
+  {
+    "id": "new44",
+    "title": "Тэрбумтаны тээгч эх",
+    "mongolian_title": "Тэрбумтаны тээгч эх",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/9.jpg",
+    "embed": "/movies/Тэрбумтаны_тээгч_эх.mp4"
+  },
+  {
+    "id": "new45",
+    "title": "Тэргэнцэртэй захиралыг эдгээсэн охин",
+    "mongolian_title": "Тэргэнцэртэй захиралыг эдгээсэн охин",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/10.jpg",
+    "embed": "/movies/Тэргэнцэртэй_захиралыг_эдгээсэн_охин.mp4"
+  },
+  {
+    "id": "new46",
+    "title": "Тэтгэвэрт гарсан ах бужигнуулж байна даа",
+    "mongolian_title": "Тэтгэвэрт гарсан ах бужигнуулж байна даа",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/11.jpg",
+    "embed": "/movies/Тэтгэвэрт_гарсан_ах_бужигнуулж_байна_даа.mp4"
+  },
+  {
+    "id": "new48",
+    "title": "Фү захирал аа, Таны хүүхэд шидтэн юм байна",
+    "mongolian_title": "Фү захирал аа, Таны хүүхэд шидтэн юм байна",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/13.jpg",
+    "embed": "/movies/Фү_захирал_аа,_Таны_хүүхэд_шидтэн_юм_байна.mp4"
+  },
+  {
+    "id": "new53",
+    "title": "Хамгийн сайхан зүйл",
+    "mongolian_title": "Хамгийн сайхан зүйл",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/18.jpg",
+    "embed": "/movies/Хамгийн_сайхан_зүйл.mp4"
+  },
+  {
+    "id": "new60",
+    "title": "Хувь заяагаа сольж болох уу",
+    "mongolian_title": "Хувь заяагаа сольж болох уу",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/25.jpg",
+    "embed": "/movies/Хувь_заяагаа_сольж_болох_уу.mp4"
+  },
+  {
+    "id": "new61",
+    "title": "Хувь заяаны эргэлт",
+    "mongolian_title": "Хувь заяаны эргэлт",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/26.jpg",
+    "embed": "/movies/Хувь_заяаны_эргэлт.mp4"
+  },
+  {
+    "id": "new62",
+    "title": "Худалдаж авсан 18 настай охин",
+    "mongolian_title": "Худалдаж авсан 18 настай охин",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/27.jpg",
+    "embed": "/movies/Худалдаж_авсан_18_настай_охин.mp4"
+  },
+  {
+    "id": "new65",
+    "title": "Хөдөөний залуу",
+    "mongolian_title": "Хөдөөний залуу",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/30.jpg",
+    "embed": "/movies/Хөдөөний_залуу.mp4"
+  },
+  {
+    "id": "new66",
+    "title": "Цэцэг нэгдэх цаг",
+    "mongolian_title": "Цэцэг нэгдэх цаг",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/31.jpg",
+    "embed": "/movies/Цэцэг_нэгдэх_цаг.mp4"
+  },
+  {
+    "id": "new67",
+    "title": "Чи бол минийх",
+    "mongolian_title": "Чи бол минийх",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/32.png",
+    "embed": "/movies/Чи_бол_минийх.mp4"
+  },
+  {
+    "id": "new69",
+    "title": "Эксийнхээ ааваас жирэмсэн болчихлоо",
+    "mongolian_title": "Эксийнхээ ааваас жирэмсэн болчихлоо",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "family"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/34.jpg",
+    "embed": "/movies/Эксийнхээ_ааваас_жирэмсэн_болчихлоо.mp4"
+  },
+  {
+    "id": "new70",
+    "title": "Энэ эмэгтэй жирийн нэгэн биш",
+    "mongolian_title": "Энэ эмэгтэй жирийн нэгэн биш",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/35.png",
+    "embed": "/movies/Энэ_эмэгтэй_жирийн_нэгэн_биш.mp4"
+  },
+  {
+    "id": "new73",
+    "title": "Этгээд эмч Хө Чянь",
+    "mongolian_title": "Этгээд эмч Хө Чянь",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/38.jpg",
+    "embed": "/movies/Этгээд_эмч_Хө_Чянь.mp4"
+  },
+  {
+    "id": "new74",
+    "title": "Эхнэр авах тусам залууждаг хөгшин",
+    "mongolian_title": "Эхнэр авах тусам залууждаг хөгшин",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/2.png",
+    "embed": "/movies/Эхнэр_авах_тусам_залууждаг_хөгшин.mp4"
+  },
+  {
+    "id": "new75",
+    "title": "Эхнэрээ алдчихлаа",
+    "mongolian_title": "Эхнэрээ алдчихлаа",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/3.jpg",
+    "embed": "/movies/Эхнэрээ_алдчихлаа.mp4"
+  },
+  {
+    "id": "new76",
+    "title": "Эхнэрэээ олохоор хотод ирлээ",
+    "mongolian_title": "Эхнэрэээ олохоор хотод ирлээ",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/4.jpg",
+    "embed": "/movies/Эхнэрэээ_олохоор_хотод_ирлээ.mp4"
+  },
+  {
+    "id": "new78",
+    "title": "ҮЗэсгэлэнт бүсгүйн хөрөг",
+    "mongolian_title": "ҮЗэсгэлэнт бүсгүйн хөрөг",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/6.jpg",
+    "embed": "/movies/ҮЗэсгэлэнт_бүсгүйн_хөрөг.mp4"
+  },
+  {
+    "id": "new80",
+    "title": "Үзэсгэлэнт бүсгүй жанжины сэтгэлийг булаав",
+    "mongolian_title": "Үзэсгэлэнт бүсгүй жанжины сэтгэлийг булаав",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "family"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/8.jpg",
+    "embed": "/movies/Үзэсгэлэнт_бүсгүй_жанжины_сэтгэлийг_булаав.mp4"
+  },
+  {
+    "id": "new81",
+    "title": "Үйлийн үр хаалга андуурдаггүй",
+    "mongolian_title": "Үйлийн үр хаалга андуурдаггүй",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/9.jpg",
+    "embed": "/movies/Үйлийн_үр_хаалга_андуурдаггүй.mp4"
+  },
+  {
+    "id": "new83",
+    "title": "Өнөөдрөөс эхлэн төгс эр хүн болно",
+    "mongolian_title": "Өнөөдрөөс эхлэн төгс эр хүн болно",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/11.jpg",
+    "embed": "/movies/Өнөөдрөөс_эхлэн_төгс_эр_хүн_болно.mp4"
+  },
+  {
+    "id": "new84",
+    "title": "\"Юу гэнэ ээ Миний мөнгө зарцуулах тусам улам л нэмэгдээд байна!\"",
+    "mongolian_title": "\"Юу гэнэ ээ Миний мөнгө зарцуулах тусам улам л нэмэгдээд байна!\"",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "drama",
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/12.jpg",
+    "embed": "/movies/\"Юу_гэнэ_ээ_Миний_мөнгө_зарцуулах_тусам_улам_л_нэмэгдээд_байна!\".mp4"
   }
 ]

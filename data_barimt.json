@@ -4,10 +4,16 @@
     "title": "Planet Earth",
     "mongolian_title": "Дэлхий гараг",
     "year": 2006,
-    "ratings": { "imdb": "9.4" },
+    "ratings": {
+      "imdb": "9.4"
+    },
     "poster_link": "https://image.tmdb.org/t/p/w500/10.jpg",
-    "genre": ["documentary"],
+    "genre": [
+      "documentary"
+    ],
     "country": "other",
-    "embed_links": ["https://stream.example.com/doc1"]
+    "embed_links": [
+      "https://stream.example.com/doc1"
+    ]
   }
 ]

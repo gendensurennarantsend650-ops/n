@@ -1,12 +1,600 @@
 [
-  {"id":"n1","title":"Миний нууц хамтрагч","year":2011,"ratings":{"imdb":"6.5"},"genre":["mystery"],"country":"korean","poster":"/posters/28.jpg","embed":"/movies/Миний_нууц_хамтрагч.mp4"},
-  {"id":"n2","title":"Хүн бүрт нууц байдаг","year":2004,"ratings":{"imdb":"7.2"},"genre":["mystery"],"country":"korean","poster":"/posters/17.jpg","embed":"/movies/Хүн_бүрт_нууц_байдаг.mp4"},
-  {"id":"n3","title":"Хананы цаана","year":2006,"ratings":{"imdb":"6.3"},"genre":["mystery"],"country":"other","poster":"/posters/24.jpg","embed":"/movies/Хананы_цаана.mp4"},
-  {"id":"n4","title":"Сексийн донтон","year":2013,"ratings":{"imdb":"6.8"},"genre":["mystery"],"country":"other","poster":"/posters/25.jpg","embed":"/movies/Сексийн_донтон.mp4"},
-  {"id":"n5","title":"Нууц","year":2000,"ratings":{"imdb":"7.0"},"genre":["mystery"],"country":"korean","poster":"/posters/11.jpg","embed":"/movies/Нууц.mp4"},
-  {"id":"n6","title":"залуу охин","year":2012,"ratings":{"imdb":"7.4"},"genre":["mystery"],"country":"korean","poster":"/posters/33.jpg","embed":"/movies/залуу_охин.mp4"},
-  {"id":"n7","title":"Сайхан гэр","year":2012,"ratings":{"imdb":"6.1"},"genre":["mystery"],"country":"korean","poster":"/posters/38.jpg","embed":"/movies/Сайхан_гэр.mp4"},
-  {"id":"n8","title":"Миний боол болооч","year":2012,"ratings":{"imdb":"6.0"},"genre":["mystery"],"country":"other","poster":"/posters/19.jpg","embed":"/movies/Миний_боол_болооч.mp4"},
-  {"id":"n9","title":"Мунаг эрийн түүх","year":2015,"ratings":{"imdb":"6.2"},"genre":["mystery"],"country":"other","poster":"/posters/18.jpg","embed":"/movies/Мунаг_эрийн_түүх.mp4"},
-  {"id":"n10","title":"Надад туслаач, Эрос","year":2007,"ratings":{"imdb":"6.7"},"genre":["mystery"],"country":"other","poster":"/posters/16.jpg","embed":"/movies/Надад_туслаач,_Эрос.mp4"}
+  {
+    "id": "n1",
+    "title": "Миний нууц хамтрагч",
+    "year": 2011,
+    "ratings": {
+      "imdb": "6.5"
+    },
+    "genre": [
+      "mystery"
+    ],
+    "country": "korean",
+    "poster": "/posters/28.jpg",
+    "embed": "/movies/Миний_нууц_хамтрагч.mp4"
+  },
+  {
+    "id": "n2",
+    "title": "Хүн бүрт нууц байдаг",
+    "year": 2004,
+    "ratings": {
+      "imdb": "7.2"
+    },
+    "genre": [
+      "mystery"
+    ],
+    "country": "korean",
+    "poster": "/posters/17.jpg",
+    "embed": "/movies/Хүн_бүрт_нууц_байдаг.mp4"
+  },
+  {
+    "id": "n3",
+    "title": "Хананы цаана",
+    "year": 2006,
+    "ratings": {
+      "imdb": "6.3"
+    },
+    "genre": [
+      "mystery"
+    ],
+    "country": "other",
+    "poster": "/posters/24.jpg",
+    "embed": "/movies/Хананы_цаана.mp4"
+  },
+  {
+    "id": "n4",
+    "title": "Сексийн донтон",
+    "year": 2013,
+    "ratings": {
+      "imdb": "6.8"
+    },
+    "genre": [
+      "mystery"
+    ],
+    "country": "other",
+    "poster": "/posters/25.jpg",
+    "embed": "/movies/Сексийн_донтон.mp4"
+  },
+  {
+    "id": "n5",
+    "title": "Нууц",
+    "year": 2000,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "mystery"
+    ],
+    "country": "korean",
+    "poster": "/posters/11.jpg",
+    "embed": "/movies/Нууц.mp4"
+  },
+  {
+    "id": "n6",
+    "title": "залуу охин",
+    "year": 2012,
+    "ratings": {
+      "imdb": "7.4"
+    },
+    "genre": [
+      "mystery"
+    ],
+    "country": "korean",
+    "poster": "/posters/33.jpg",
+    "embed": "/movies/залуу_охин.mp4"
+  },
+  {
+    "id": "n7",
+    "title": "Сайхан гэр",
+    "year": 2012,
+    "ratings": {
+      "imdb": "6.1"
+    },
+    "genre": [
+      "mystery"
+    ],
+    "country": "korean",
+    "poster": "/posters/38.jpg",
+    "embed": "/movies/Сайхан_гэр.mp4"
+  },
+  {
+    "id": "n8",
+    "title": "Миний боол болооч",
+    "year": 2012,
+    "ratings": {
+      "imdb": "6.0"
+    },
+    "genre": [
+      "mystery"
+    ],
+    "country": "other",
+    "poster": "/posters/19.jpg",
+    "embed": "/movies/Миний_боол_болооч.mp4"
+  },
+  {
+    "id": "n9",
+    "title": "Мунаг эрийн түүх",
+    "year": 2015,
+    "ratings": {
+      "imdb": "6.2"
+    },
+    "genre": [
+      "mystery"
+    ],
+    "country": "other",
+    "poster": "/posters/18.jpg",
+    "embed": "/movies/Мунаг_эрийн_түүх.mp4"
+  },
+  {
+    "id": "n10",
+    "title": "Надад туслаач, Эрос",
+    "year": 2007,
+    "ratings": {
+      "imdb": "6.7"
+    },
+    "genre": [
+      "mystery"
+    ],
+    "country": "other",
+    "poster": "/posters/16.jpg",
+    "embed": "/movies/Надад_туслаач,_Эрос.mp4"
+  },
+  {
+    "id": "new2",
+    "title": "Аавын хурим дээр хойд эхийн урвалт илчлэгдэнэ",
+    "mongolian_title": "Аавын хурим дээр хойд эхийн урвалт илчлэгдэнэ",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/4.jpg",
+    "embed": "/movies/Аавын_хурим_дээр_хойд_эхийн_урвалт_илчлэгдэнэ.mp4"
+  },
+  {
+    "id": "new3",
+    "title": "Арван жилийн хайр зүгээр нэг төөрөгдөл байж",
+    "mongolian_title": "Арван жилийн хайр зүгээр нэг төөрөгдөл байж",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/5.jpg",
+    "embed": "/movies/Арван_жилийн_хайр_зүгээр_нэг_төөрөгдөл_байж.mp4"
+  },
+  {
+    "id": "new12",
+    "title": "Гэрлэлтэд нуугдсан урвалт",
+    "mongolian_title": "Гэрлэлтэд нуугдсан урвалт",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/14.jpg",
+    "embed": "/movies/Гэрлэлтэд_нуугдсан_урвалт.mp4"
+  },
+  {
+    "id": "new16",
+    "title": "Дунд насандаа гэнэт гэрлээд, ханийхаа хязгааргүй хайранд умбав",
+    "mongolian_title": "Дунд насандаа гэнэт гэрлээд, ханийхаа хязгааргүй хайранд умбав",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/18.jpg",
+    "embed": "/movies/Дунд_насандаа_гэнэт_гэрлээд,_ханийхаа_хязгааргүй_хайранд_умбав.mp4"
+  },
+  {
+    "id": "new19",
+    "title": "Дээдсийн хүрээлэнгийн бэрх хайр",
+    "mongolian_title": "Дээдсийн хүрээлэнгийн бэрх хайр",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/21.png",
+    "embed": "/movies/Дээдсийн_хүрээлэнгийн_бэрх_хайр.mp4"
+  },
+  {
+    "id": "new20",
+    "title": "Дөрвөн жилийн минь хайр ингээд төгслөө",
+    "mongolian_title": "Дөрвөн жилийн минь хайр ингээд төгслөө",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/22.jpg",
+    "embed": "/movies/Дөрвөн_жилийн_минь_хайр_ингээд_төгслөө.mp4"
+  },
+  {
+    "id": "new26",
+    "title": "Крашийнхаа ээжид хайртай болчихлоо",
+    "mongolian_title": "Крашийнхаа ээжид хайртай болчихлоо",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/28.jpg",
+    "embed": "/movies/Крашийнхаа_ээжид_хайртай_болчихлоо.mp4"
+  },
+  {
+    "id": "new29",
+    "title": "Насны зөрүүтэй хосууд",
+    "mongolian_title": "Насны зөрүүтэй хосууд",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/31.jpg",
+    "embed": "/movies/Насны_зөрүүтэй_хосууд.mp4"
+  },
+  {
+    "id": "new30",
+    "title": "Ноёны гэмгүй хайрт",
+    "mongolian_title": "Ноёны гэмгүй хайрт",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/32.png",
+    "embed": "/movies/Ноёны_гэмгүй_хайрт.mp4"
+  },
+  {
+    "id": "new31",
+    "title": "Нууц ил боллоо",
+    "mongolian_title": "Нууц ил боллоо",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "mystery",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/33.png",
+    "embed": "/movies/Нууц_ил_боллоо.mp4"
+  },
+  {
+    "id": "new32",
+    "title": "Нууц мэдрэмжийн хязгаар",
+    "mongolian_title": "Нууц мэдрэмжийн хязгаар",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "mystery",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/34.jpg",
+    "embed": "/movies/Нууц_мэдрэмжийн_хязгаар.mp4"
+  },
+  {
+    "id": "new33",
+    "title": "Нууцлаг ээж",
+    "mongolian_title": "Нууцлаг ээж",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "mystery",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/35.png",
+    "embed": "/movies/Нууцлаг_ээж.mp4"
+  },
+  {
+    "id": "new34",
+    "title": "Оройтсон хайр",
+    "mongolian_title": "Оройтсон хайр",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/36.jpg",
+    "embed": "/movies/Оройтсон_хайр.mp4"
+  },
+  {
+    "id": "new38",
+    "title": "Сүйгээ болиод гурван хүчирхэг ахын хайр халамжид умбалаа",
+    "mongolian_title": "Сүйгээ болиод гурван хүчирхэг ахын хайр халамжид умбалаа",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/3.jpg",
+    "embed": "/movies/Сүйгээ_болиод_гурван_хүчирхэг_ахын_хайр_халамжид_умбалаа.mp4"
+  },
+  {
+    "id": "new49",
+    "title": "Хайр хүслээр болдоггүй",
+    "mongolian_title": "Хайр хүслээр болдоггүй",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/14.jpg",
+    "embed": "/movies/Хайр_хүслээр_болдоггүй.mp4"
+  },
+  {
+    "id": "new50",
+    "title": "Хайр ямар ч үнэ цэнэгүй",
+    "mongolian_title": "Хайр ямар ч үнэ цэнэгүй",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/15.jpg",
+    "embed": "/movies/Хайр_ямар_ч_үнэ_цэнэгүй.mp4"
+  },
+  {
+    "id": "new51",
+    "title": "Хайрын лугшилт",
+    "mongolian_title": "Хайрын лугшилт",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/16.jpg",
+    "embed": "/movies/Хайрын_лугшилт.mp4"
+  },
+  {
+    "id": "new52",
+    "title": "Хайрын хичээл",
+    "mongolian_title": "Хайрын хичээл",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/17.jpg",
+    "embed": "/movies/Хайрын_хичээл.mp4"
+  },
+  {
+    "id": "new55",
+    "title": "Харанхуй шөнийн нууцхан учрал",
+    "mongolian_title": "Харанхуй шөнийн нууцхан учрал",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/20.jpg",
+    "embed": "/movies/Харанхуй_шөнийн_нууцхан_учрал.mp4"
+  },
+  {
+    "id": "new56",
+    "title": "Хойд ахын заваан нууц",
+    "mongolian_title": "Хойд ахын заваан нууц",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "mystery",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/21.png",
+    "embed": "/movies/Хойд_ахын_заваан_нууц.mp4"
+  },
+  {
+    "id": "new63",
+    "title": "Хурим дээр солигдсон эхнэрүүд",
+    "mongolian_title": "Хурим дээр солигдсон эхнэрүүд",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/28.jpg",
+    "embed": "/movies/Хурим_дээр_солигдсон_эхнэрүүд.mp4"
+  },
+  {
+    "id": "new64",
+    "title": "Хуримын шөнө эхнэрийнхээ нууцыг мэдлээ",
+    "mongolian_title": "Хуримын шөнө эхнэрийнхээ нууцыг мэдлээ",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/29.png",
+    "embed": "/movies/Хуримын_шөнө_эхнэрийнхээ_нууцыг_мэдлээ.mp4"
+  },
+  {
+    "id": "new68",
+    "title": "Чу захирлын нандин хайр",
+    "mongolian_title": "Чу захирлын нандин хайр",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/33.png",
+    "embed": "/movies/Чу_захирлын_нандин_хайр.mp4"
+  },
+  {
+    "id": "new71",
+    "title": "Эротик СҮНС",
+    "mongolian_title": "Эротик СҮНС",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/36.jpg",
+    "embed": "/movies/Эротик_СҮНС.mp4"
+  },
+  {
+    "id": "new77",
+    "title": "Ээж ээ, таны нууц илчлэгдлээ",
+    "mongolian_title": "Ээж ээ, таны нууц илчлэгдлээ",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "mystery",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/5.jpg",
+    "embed": "/movies/Ээж_ээ,_таны_нууц_илчлэгдлээ.mp4"
+  },
+  {
+    "id": "new79",
+    "title": "Үдэшлэг дээрээс төрсөн хайр",
+    "mongolian_title": "Үдэшлэг дээрээс төрсөн хайр",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/7.jpg",
+    "embed": "/movies/Үдэшлэг_дээрээс_төрсөн_хайр.mp4"
+  },
+  {
+    "id": "new82",
+    "title": "Үйлчлүүлэгчдээ дурласан эмэгтэй",
+    "mongolian_title": "Үйлчлүүлэгчдээ дурласан эмэгтэй",
+    "year": 2023,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "romance",
+      "drama"
+    ],
+    "country": "korean",
+    "type": "movie",
+    "poster": "/posters/10.jpg",
+    "embed": "/movies/Үйлчлүүлэгчдээ_дурласан_эмэгтэй.mp4"
+  }
 ]

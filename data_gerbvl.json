@@ -1,6 +1,58 @@
 [
-  {"id":"f1","title":"Ээжийн найз","year":2014,"ratings":{"imdb":"6.4"},"genre":["family"],"country":"korean","poster":"/posters/23.jpg","embed":"/movies/Ээжийн_найз.mp4"},
-  {"id":"f2","title":"Гэр бүлийн халуухан нууц","year":2021,"ratings":{"imdb":"6.7"},"genre":["family"],"country":"korean","poster":"/posters/29.jpg","embed":"/movies/Гэр_бүлийн_халуухан_нууц.mp4"},
-  {"id":"f3","title":"Бээжинд төөрсөн нь","year":2007,"ratings":{"imdb":"7.0"},"genre":["family"],"country":"other","poster":"/posters/22.jpg","embed":"/movies/Бээжинд_төөрсөн_нь.mp4"},
-  {"id":"f4","title":"Төгс хос","year":2011,"ratings":{"imdb":"6.9"},"genre":["family"],"country":"korean","poster":"/posters/15.jpg","embed":"/movies/Төгс_хос.mp4"}
+  {
+    "id": "f1",
+    "title": "Ээжийн найз",
+    "year": 2014,
+    "ratings": {
+      "imdb": "6.4"
+    },
+    "genre": [
+      "family"
+    ],
+    "country": "korean",
+    "poster": "/posters/23.jpg",
+    "embed": "/movies/Ээжийн_найз.mp4"
+  },
+  {
+    "id": "f2",
+    "title": "Гэр бүлийн халуухан нууц",
+    "year": 2021,
+    "ratings": {
+      "imdb": "6.7"
+    },
+    "genre": [
+      "family"
+    ],
+    "country": "korean",
+    "poster": "/posters/29.jpg",
+    "embed": "/movies/Гэр_бүлийн_халуухан_нууц.mp4"
+  },
+  {
+    "id": "f3",
+    "title": "Бээжинд төөрсөн нь",
+    "year": 2007,
+    "ratings": {
+      "imdb": "7.0"
+    },
+    "genre": [
+      "family"
+    ],
+    "country": "other",
+    "poster": "/posters/22.jpg",
+    "embed": "/movies/Бээжинд_төөрсөн_нь.mp4"
+  },
+  {
+    "id": "f4",
+    "title": "Төгс хос",
+    "year": 2011,
+    "ratings": {
+      "imdb": "6.9"
+    },
+    "genre": [
+      "family"
+    ],
+    "country": "korean",
+    "poster": "/posters/15.jpg",
+    "embed": "/movies/Төгс_хос.mp4"
+  }
 ]

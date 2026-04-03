@@ -4,11 +4,17 @@
     "title": "Indiana Jones",
     "mongolian_title": "Индиана Жонс",
     "year": 1981,
-    "ratings": { "imdb": "8.4" },
+    "ratings": {
+      "imdb": "8.4"
+    },
     "poster_link": "https://image.tmdb.org/t/p/w500/1.jpg",
-    "genre": ["adventure"],
+    "genre": [
+      "adventure"
+    ],
     "country": "other",
-    "embed_links": ["https://stream.example.com/adventure1"]
+    "embed_links": [
+      "https://stream.example.com/adventure1"
+    ]
   },
   {
     "id": "z1",
@@ -17,7 +23,9 @@
     "ratings": {
       "imdb": "6.2"
     },
-    "genre": ["sci-fi"],
+    "genre": [
+      "sci-fi"
+    ],
     "country": "korean",
     "poster": "/posters/31.jpg",
     "embed": "/movies/Үйлчлэгч_андроид.mp4"
