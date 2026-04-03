@@ -1,8 +1,9 @@
 // player.js — NABOOSHY Видео Тоглуулагч
 import './player-hls.js';
 
-// 1. Чиний шинэчилсэн Worker-ийн хаяг
-const WORKER_URL = "https://dark-meadow-83ae.narhantv.workers.dev";
+// 1. ЗӨВХӨН ЭНЭ МӨРИЙГ ӨӨРЧЛӨВ: 
+// "dark-meadow..." гэсэн хаягийг устгаж, вэбсайтын өөрийнх нь хаягийг авдаг болголоо.
+const WORKER_URL = window.location.origin; 
 
 window._pendingMovie = null;
 
@@ -40,7 +41,7 @@ function _playMovie(m) {
   else if (videoUrl.toLowerCase().endsWith('.mp4') || videoUrl.includes('.mp4?')) {
     if (p2p) p2p.style.display = 'none';
     
-    // МАШ ЧУХАЛ: crossorigin="anonymous" нь CORS алдаанаас сэргийлнэ
+    // crossorigin="anonymous" нь CORS алдаанаас сэргийлнэ
     wrap.innerHTML = `
       <video 
         src="${videoUrl}" 
